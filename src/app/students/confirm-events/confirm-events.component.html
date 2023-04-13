@@ -1,0 +1,37 @@
+<div class="card radius-10">
+    <h2 class="mt-2 text-uppercase text-center">Event list</h2>
+    <br>
+    <div class="card-body">
+
+        <div *ngFor="let event of eventsByStudent" class=" row d-flex align-items-center pb-3 me-auto">
+            <!-- <img
+        src="assets/images/avatars/avatar-4.png"
+        class="align-self-start rounded-circle p-1 border"
+        width="90"
+        height="90"
+        alt="..."
+      /> -->
+            <div class="card col-9 flex-grow-1 ms-3">
+                <h3 class="mt-0">{{event.Name}}
+                    <span *ngIf="event.Confirm == 0" class="fst-italic text-danger">(Bạn đã xác nhận không tham gia)</span>
+                    <span *ngIf="event.Confirm == 1" class="fst-italic text-success">(Bạn đã xác nhận tham gia)</span>
+                </h3>
+
+                <p>
+                    {{event.Description}}
+                </p>
+
+            </div>
+            <div class="confirmButton col-2 text-white">
+                <div class="row">
+                    <button (click)="confirmEvent(event.StudentID, event.EventID, 1)" *ngIf="event.Confirm == 0" type="button" class="btn btn-sm btn-info text-white">Xác nhận tham gia</button>
+                </div>
+                <div class="row">
+                    <button (click)="confirmEvent(event.StudentID, event.EventID, 0)" *ngIf="event.Confirm == 1" type="button" class="btn btn-sm btn-danger text-white">Xác nhận không tham gia</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

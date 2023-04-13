@@ -1,0 +1,89 @@
+<h2 class="text-center text-black"> Tất cả sinh viên</h2>
+<table class="table  mb-3">
+    <thead class="align-middle text-center table-light">
+        <tr>
+            <td>
+                <input class="form-check-input table__checkbox" type="checkbox">
+            </td>
+            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ">
+                No.</th>
+            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">
+                Tên sinh viên</th>
+            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">
+                Trường</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Nguồn nhập học</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Ngành</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Liên lạc</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Học bổng</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Trình độ TA</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Phí</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Tình trạng hồ sơ </th>
+        </tr>
+
+    </thead>
+
+    <tbody class="align-middle text-center">
+        <tr *ngFor="let student of students;let i = index">
+            <td>
+                <input class="form-check-input table__checkbox" type="checkbox">
+            </td>
+            <td>
+
+                <p class="mb-0 text-sm">{{i}}</p>
+
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0"><a [routerLink]="['/admissions/liststudent/formprofile', student.Id]">{{student.FullName}}</a></p>
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0">{{student.HightSchool}}</p>
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0">{{student.LeadSoure}}</p>
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0">{{student.Majors}}</p>
+            </td>
+            <td>
+                <div class="d-flex align-items-center gap-3 fs-6">
+                    <a [routerLink]="['/admissions/liststudent/formprofile', student.Id]" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i
+                class="bi bi-eye-fill"></i></a>
+                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Email" aria-label="Email"><i class="lni lni-envelope"></i></a>
+
+                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Chat Box" aria-label="Chat Box"><i
+                class="fadeIn animated bx bx-message-detail"></i></a>
+                </div>
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0">Không</p>
+            </td>
+            <td>
+                <div class="std__english_level not__set_level"><span class="small__text">Chưa xếp trình độ</span>
+                </div>
+            </td>
+
+            <td>
+                <p class="text-sm font-weight-bold mb-0 text-success">Đủ phí</p>
+
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0 text-success">Đủ hồ sơ</p>
+            </td>
+        </tr>
+
+    </tbody>
+
+
+
+
+</table>
+<div class="card flex justify-content-center">
+    <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="120" [rowsPerPageOptions]="[5, 10, 20]"></p-paginator>
+</div>

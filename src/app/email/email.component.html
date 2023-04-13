@@ -1,0 +1,52 @@
+
+        <!--start email wrapper-->
+        <div class="email-wrapper">
+            <div class="email-sidebar">
+                <div class="email-sidebar-header d-grid"> <a [routerLink]="['/admissions/email/newemail']" href="javascript:;"><i class="bi bi-plus-lg me-2"></i>Compose</a>
+                </div>
+                <div class="email-sidebar-content">
+                    <div class="email-navigation">
+                        <div class="list-group list-group-flush"> <a [routerLink]="['/admissions/email/emailbox']" href="#" class="list-group-item active d-flex align-items-center"><i class='bx bxs-inbox me-3 font-20'></i><span>Inbox</span><span class="badge bg-primary rounded-pill ms-auto">240</span></a>
+                            <a [routerLink]="['/admissions/email/emailbox']" href="javascript:;" class="list-group-item d-flex align-items-center"><i class='bx bxs-send me-3 font-20'></i><span>Đã Xem</span></a>
+                            <a [routerLink]="['/admissions/email/emailbox']" href="#" class="list-group-item d-flex align-items-center"><i class='bx bxs-envelope-open me-3 font-20'></i><span>All Mail</span></a>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="email-header d-xl-flex align-items-center">
+                <div class="d-flex align-items-center">
+                    <div class="email-toggle-btn"><i class='bx bx-menu'></i>
+                    </div>
+                    <div class="btn btn-white">
+                        <input class="form-check-input" type="checkbox">
+                    </div>
+                  
+                   
+                    <div class="">
+                        <button type="button" class="btn btn-white ms-2"><i class="bi bi-trash-fill me-0"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex-grow-1 mx-xl-2 my-2 my-xl-0">
+                    <div class="input-group">	<span class="input-group-text bg-transparent"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Search mail">
+                    </div>
+                </div>
+                <div class="ms-auto d-flex align-items-center">
+                    <button class="btn btn-sm btn-light">1-10 of 235</button>
+                    <button class="btn btn-white px-2 ms-2"><i class="bi bi-chevron-left me-0"></i>
+                    </button>
+                    <button class="btn btn-white px-2 ms-2"><i class="bi bi-chevron-right me-0"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="email-content">
+                <router-outlet></router-outlet>
+            </div>
+
+            <!--start email overlay-->
+            <div class="overlay email-toggle-btn-mobile"></div>
+            <!--end email overlay-->
+        </div>
+        <!--end email wrapper-->

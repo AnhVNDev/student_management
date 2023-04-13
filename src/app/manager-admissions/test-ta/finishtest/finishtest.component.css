@@ -1,0 +1,26 @@
+.userZone {
+    display: inline-flex;
+    justify-content: flex-start;
+}
+
+.userZone button {
+    margin-left: 25px;
+    
+}
+
+.ckMajor {
+    margin-bottom: 3px;
+}
+
+.fsFilter {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#footerModal {
+    display: flex;
+    place-content: center;
+}

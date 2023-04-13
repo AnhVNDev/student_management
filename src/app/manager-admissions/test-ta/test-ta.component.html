@@ -1,0 +1,498 @@
+<!-- <main class="page-content"> -->
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+  <div class="breadcrumb-title pe-3">eCommerce</div>
+  <div class="ps-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0 p-0">
+        <li class="breadcrumb-item">
+          <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Danh sách sinh viên
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!--end breadcrumb-->
+
+<div class="card">
+  <div class="card-header py-3">
+    <div class="row align-items-center m-0">
+      <div class="col-md-3 col-12 me-auto mb-md-0 mb-3">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Các danh sách sinh viên
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li class="linkTable">
+              <a [routerLink]="['/manageradmission/test/liststudenttest']">
+                Tất cả sinh viên đủ điều kiện nhập học
+              </a>
+            </li>
+           
+            <li class="linkTable"><a [routerLink]="['/manageradmission/test/studentwait']" class="linkTable"> Danh sách
+                sinh viên các trình độ tiếng anh </a></li>
+            <li class="linkTable"><a [routerLink]="['/manageradmission/test/finishtest']" class="linkTable">NE đi
+                học</a></li>
+            <ul class="nav nav-pills">
+              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#Liststudenttest"><span
+                    class="p-tab-name">Tất cả sinh viên đủ điều kiện nhập học</span><i
+                    class='bx bx-message-edit font-24 d-sm-none'></i></a>
+              </li>
+              <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#Studentwait"><span
+                    class="p-tab-name">Danh sách sinh viên các trình độ tiếng anh</span><i
+                    class='bx bx-donate-blood font-24 d-sm-none'></i></a>
+              </li>
+              <li class="nav-item"> <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Finishtest"><span
+                    class="p-tab-name">NE đi học</span><i class='bx bxs-user-rectangle font-24 d-sm-none'></i></a>
+              </li>
+
+            </ul>
+
+            <!-- <div class="tab-content mt-3">
+                <div class="tab-pane fade show active" id="Liststudenttest">
+                  <table class="table align-middle table-striped">
+                    <table class="table align-middle">
+                      <thead class="table-secondary">
+                        <tr>
+                          <th>Mã học sinh</th>
+                          <th>Tên tư vấn</th>
+                          <th>Tên học sinh</th>
+                          <th>Trường</th>
+                          <th>Tỉnh</th>
+                          <th>Liên lạc</th>
+                          <th>Trình độ TA</th>
+                          <th>Thông tin khác</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Thomas Hardy</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>89 Chicago UK</td>
+                          <td>Chicago</td>
+                          <td>8574201</td>
+                          <td>
+                            <i class="fa-sharp fa-solid fa-phone" style="margin-left: 20px;"></i>
+                            <i class="fa-solid fa-envelope" style="margin-left: 20px;"></i>
+                          </td>
+                          <td>
+                            <span class="badge bg-danger text w-100">Chưa xếp trình độ</span>
+                          </td>
+                          <td>United Kingdom</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-2.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Victoria Hardy</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>77 New York UK</td>
+                          <td>New York</td>
+                          <td>8956370</td>
+                          <td>United Kingdom</td>
+                          <td>
+                            <span class="badge bg-success text w-100">Lên chuyên ngành</span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-3.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Maria Anders</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>56 Poland UK</td>
+                          <td>Poland</td>
+                          <td>3265840</td>
+                          <td>United Kingdom</td>
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-4.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Maria Anders</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>47-A Delhi India</td>
+                          <td>Delhi</td>
+                          <td>6535420</td>
+                          <td>India</td>
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-5.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Martin Loother</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>37 B Columbo Shri Lanka</td>
+                          <td>Columbo</td>
+                          <td>9645230</td>
+                          <td>Shri Lanka</td>
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-6.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Martin Loother</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>68 New York UK</td>
+                          <td>New York</td>
+                          <td>7854230</td>
+                          <td>United Kingdom</td>
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </table>
+        
+        
+                </div>
+        
+        
+        
+                <div class="tab-pane fade" id="Studentwait">
+                  <table class="table align-middle table-striped">
+                    <table class="table align-middle">
+                      <thead class="table-secondary">
+                        <tr>
+                          <th>Mã học sinh</th>
+                          <th>Ngày tham gia</th>
+                          <th>Tên học sinh</th>
+                          <th>Địa chỉ</th>
+                          <th>Liên lạc</th>
+                          <th>Trạng thái</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Thomas Hardy</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>89 Chicago UK</td>
+                          <td>Chicago</td>
+                          <td>8574201</td>
+                          <td>
+                            <span class="badge bg-danger text w-100">Chưa xếp trình độ</span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-2.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Victoria Hardy</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>77 New York UK</td>
+                          <td>New York</td>
+                          <td>8956370</td>
+        
+                          <td>
+                            <span class="badge bg-success text w-100">Lên chuyên ngành</span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-3.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Maria Anders</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>56 Poland UK</td>
+                          <td>Poland</td>
+                          <td>3265840</td>
+        
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-4.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Maria Anders</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>47-A Delhi India</td>
+                          <td>Delhi</td>
+                          <td>6535420</td>
+        
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-5.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Martin Loother</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>37 B Columbo Shri Lanka</td>
+                          <td>Columbo</td>
+                          <td>9645230</td>
+        
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-6.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Martin Loother</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>68 New York UK</td>
+                          <td>New York</td>
+                          <td>7854230</td>
+        
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </table>
+                </div>
+        
+        
+                <div class="tab-pane fade " id="Finishtest">
+                  <table class="table align-middle table-striped">
+                    <table class="table align-middle">
+                      <thead class="table-secondary">
+                        <tr>
+                          <th>Mã học sinh</th>
+                          <th>Ngày tham gia</th>
+                          <th>Tên học sinh</th>
+                          <th>Địa chỉ</th>
+                          <th>Liên lạc</th>
+                          <th>Trạng thái</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Thomas Hardy</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>89 Chicago UK</td>
+                          <td>Chicago</td>
+                          <td>
+                            <i class="fa-solid fa-phone"></i>
+                            <i class="fa-solid fa-envelope" style="margin-left: 20px"></i>
+                          </td>
+                          <td>
+                            <span class="badge bg-warning text w-80">Thêm hồ sơ quyết định đi học</span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-2.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Victoria Hardy</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>77 New York UK</td>
+                          <td>New York</td>
+                          <td>8956370</td>
+        
+                          <td>
+                            <span class="badge bg-success text w-100">Lên chuyên ngành</span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-3.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Maria Anders</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>56 Poland UK</td>
+                          <td>Poland</td>
+                          <td>3265840</td>
+        
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-4.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Maria Anders</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>47-A Delhi India</td>
+                          <td>Delhi</td>
+                          <td>6535420</td>
+        
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-5.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Martin Loother</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>37 B Columbo Shri Lanka</td>
+                          <td>Columbo</td>
+                          <td>9645230</td>
+        
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>
+                            <div class="d-flex align-items-center gap-3 cursor-pointer">
+                              <img src="assets/images/avatars/avatar-6.png" class="rounded-circle" width="44" height="44"
+                                alt="" />
+                              <div class="">
+                                <p class="mb-0">Martin Loother</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>68 New York UK</td>
+                          <td>New York</td>
+                          <td>7854230</td>
+        
+                          <td><span class="badge bg-primary text w-100">Lv1</span></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </table>
+                </div>
+              </div> -->
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <router-outlet> </router-outlet>
+
+    <nav class="float-end mt-4" aria-label="Page navigation">
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <a class="page-link" href="#">Previous</a>
+        </li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<!-- </main> -->
+<!--end page main-->
+
+<!--start overlay-->
+<div class="overlay nav-toggle-icon"></div>
+<!--end overlay-->
+
+<!--Start Back To Top Button-->
+<a href="javaScript:;" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
+<!--End Back To Top Button-->
+
+<!--start switcher-->

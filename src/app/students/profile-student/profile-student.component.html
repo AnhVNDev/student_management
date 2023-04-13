@@ -1,0 +1,554 @@
+<div class="col col-md-12 align-content-center">
+    <!--breadcrumb-->
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center">
+        <!-- <div class="breadcrumb-title pe-3 text-white">Pages</div> -->
+        <div class="ps-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0">
+                    <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt text-white"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">User Profile</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!--end breadcrumb-->
+
+    <div class="profile-cover bg-dark"></div>
+
+    <div class="row">
+        <!--<iframe [src]="pdfUrl" width="500" height="500"></iframe> -->
+
+        <div class="card shadow-sm border-0 overflow-hidden">
+            <div class="card-body">
+                <div class="profile-avatar text-center">
+                    <img src="../../assets/main-files/snacked/ltr/assets/images/avatars/avatar-1.png" class="rounded-circle shadow" width="120" height="120" alt="">
+                </div>
+
+            </div>
+
+        </div>
+        <div class="middle-content container-xxl p-0">
+
+
+            <div class="col-lg-12 ">
+
+
+                <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                    <!-- <div class="col-lg-12 "> -->
+                    <div class="card">
+                        <br>
+                        <div class="row">
+                            <h3 class="text-center text-success" *ngIf="editStatus == 1">Thông tin đang được quyền Chỉnh Sửa</h3>
+                            <h3 class="text-center text-warning" *ngIf="editStatus == 2">Đang chờ tuyển sinh cấp phép Chỉnh sửa...</h3>
+                            <h3 class="text-center text-danger" *ngIf="editStatus == 0">Thông tin không cho phép Chỉnh sửa</h3>
+                        </div>
+                        <button (click)="editRequest()" [disabled]="editStatus == 1 || editStatus ==2" class="btn btn-sm btn-info text-center align-content-center m-auto">Yêu cầu quyền Chỉnh Sửa</button>
+
+                        <div class="card-title text-center pt-2">
+                            <h2>THÔNG TIN CÁ NHÂN</h2>
+
+                        </div>
+                        <div class="card-body ">
+                            <div class="horizontal-form-elements">
+
+                                <form class="form-horizontal" [formGroup]="uploadForm" enctype="multipart/form-data" (ngSubmit)="onSubmit()" novalidate>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2 pt-2">
+                                                <label class="col-sm-12 control-label font-20 font-20">Họ Và Tên</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" placeholder="Họ và Tên" formControlName="FullName">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-4"></div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2 pt-2">
+                                                <label class="col-sm-12 control-label font-20">Giới Tính</label>
+                                                <div class="col-sm-12">
+
+                                                    <select class="form-select" formControlName="Gender">
+
+                                                        <option *ngFor="let opt of ngOptionsGender" [value]="opt">
+                                                            {{opt}}
+                                                        </option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <!-- /# column -->
+                                    <div class="row">
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Ngày Sinh</label>
+                                                <div class="col-sm-12">
+                                                    <input type="date" class="form-control" placeholder="" formControlName="Birthday">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Nơi Sinh</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" placeholder="Nơi Sinh" formControlName="PlaceOfBirth">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Quốc Tịch</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" placeholder="Quốc Tịch" formControlName="Nationality">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">CCCD</label>
+                                                <div class="col-sm-12">
+                                                    <input type="number" class="form-control" placeholder="Căn cước công dân" formControlName="CitizenIdentificationNum">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Ngày cấp</label>
+                                                <div class="col-sm-12">
+                                                    <input type="date" class="form-control" placeholder="" formControlName="DateCitizen">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Nơi cấp</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" placeholder=" Nơi cấp" formControlName="PlaceCitizen">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br>
+
+                                    <!-- /# column -->
+
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Trường THPT</label>
+                                                <div class="row">
+                                                    <div class="col-sm-12 form-group pt-2 ">
+                                                        <label class="col-sm-12 control-label font-20">Tỉnh/Thành phố</label>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-select " formControlName="provinceTHPT">
+
+                                                                <option *ngFor="let opt of ngOptionsProvinceTHPT"
+                                                                    [value]="opt">
+                                                                    {{opt}}
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-12 form-group pt-2">
+                                                    <label class="col-sm-12 control-label font-20">Tên Trường THPT</label>
+                                                    <select class="form-select " formControlName="HightSchool" placeholder="Tên trường THPT">
+
+                                                        <option *ngFor="let opt of ngOptionsHightSchool" [value]="opt">
+                                                            {{opt}}
+                                                        </option>
+
+                                                    </select>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4"></div>
+
+                                        <div class="col-lg-4">
+                                            <br>
+                                            <div class="form-group pt-2">
+
+
+                                                <div class="col-sm-12 form-group pt-2">
+                                                    <label class="col-sm-12 control-label font-20">Năm tốt nghiệp</label>
+                                                    <select class="form-select " formControlName="GraduationYear">
+                                                        <option *ngFor="let year of years" [value]="year">
+                                                            {{year}}
+                                                        </option>
+                                                    </select>
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br>
+                                    <div class="row">
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Số điện thoại cá
+                                                    nhân</label>
+                                                <div class="col-sm-12">
+                                                    <input [disabled]="true" type="phone" class="form-control" placeholder="SDT cá nhân thường sử dụng" formControlName="Phone">
+                                                </div>
+                                            </div>
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Link Facebook</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" placeholder="Link Facebook cá nhân" formControlName="LinkFacebook">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4"></div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Ngành học</label>
+                                                <div class="col-sm-12">
+                                                    <select class="form-select" formControlName="Majors">
+                                                        <option *ngFor="let opt of ngOptionsMajors" [value]="opt">
+                                                            {{opt}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Email</label>
+                                                <div class="col-sm-12">
+                                                    <input type="email" class="form-control" formControlName="Email" placeholder="Email cá nhân">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <br>
+                                    <div class="row">
+
+                                        <div class="form-group pt-2">
+                                            <h3 class="col-sm-12 control-label font-20">ĐỊA CHỈ</h3>
+
+
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="form-group pt-2">
+                                                        <label class="col-sm-12 control-label font-20">Tỉnh/Thành phố</label>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-select " id="city">
+                                                                <option value="" selected>Chọn tỉnh thành</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group pt-2">
+                                                        <label class="col-sm-12 control-label font-20">Quận/Huyện</label>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-select  " id="district">
+                                                                <option value="" selected>Chọn quận/huyện</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group pt-2">
+                                                        <label class="col-sm-12 control-label font-20">Phường/Xã</label>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-select " id="ward">
+                                                                <option value="" selected>Chọn phường/xã</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group pt-2">
+                                                        <label class="col-sm-12 control-label font-20">Địa chỉ cụ thể (số nhà
+                                                            riêng/thôn/xóm)</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" placeholder="Ví dụ: Số 5,...." formControlName="Address" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Người Bảo Hộ 1</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" placeholder="Họ Và Tên Người Bảo Hộ 1" formControlName="NameSponsor1">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Số điên thoại
+                                                </label>
+                                                <div class="col-sm-12">
+                                                    <input type="phone" class="form-control" placeholder="Số điên thoại" formControlName="PhoneNumberSponsor1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Email</label>
+                                                <div class="col-sm-12">
+                                                    <input type="email" class="form-control" placeholder="Email" formControlName="EmailSponsor1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Họ Tên Người Bảo Hộ 2</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" placeholder="Họ và tên người bảo hộ 2" formControlName="NameSponsor2">
+                                                </div>
+                                            </div>
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Số điên thoại
+                                                </label>
+                                                <div class="col-sm-12">
+                                                    <input type="phone" class="form-control" placeholder="Số điên thoại" formControlName="PhoneNumberSponsor2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Email</label>
+                                                <div class="col-sm-12">
+                                                    <input type="email" class="form-control" placeholder="Email" formControlName="EmailSponsor2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="card-title text-center">
+                                        <h4>HỒ SƠ</h4>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-5">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20" for="BangTNTHPT">Bằng tốt
+                                                    nghiệp
+                                                    THPT</label>
+                                                <div class="col-sm-12 col-lg-10">
+
+                                                    <img [src]="images.CertificateOfGraduation" style="max-width:100%;cursor:pointer" (click)="openModal(images.CertificateOfGraduation)" class="modal-hover-opacity" id="imgBangTNTHPT" alt="" width="100" height="100" />
+
+                                                    <br>
+                                                    <div class="custom-file mb-1">
+                                                        <input type="file" class="custom-file-input" formControlName="CertificateOfGraduation" (change)="selectFile($event, 'CertificateOfGraduation')" placeholder="Bằng tốt nghiệp THPT" id="BangTNTHPT" required>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Giấy chứng nhận tốt
+                                                    nghiệp
+                                                    THPT tạm thời (gốc)</label>
+                                                <div class="col-sm-12 col-lg-10">
+                                                    <img [src]="images.TemporaryCertificateOfGraduation" style="max-width:100%;cursor:pointer" class="modal-hover-opacity" (click)="openModal(images.TemporaryCertificateOfGraduation)" id="imgGCNTNTT" alt="" width="100" height="100" />
+                                                    <br>
+                                                    <div class="custom-file mb-1">
+                                                        <input type="file" class="custom-file-input" (change)="selectFile($event, 'TemporaryCertificateOfGraduation')" formControlName="TemporaryCertificateOfGraduation" placeholder="Giấy chứng nhận tốt nghiệp THPT" id="GCNTNTT" required>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Học Bạ THPT </label>
+                                                <div class="col-sm-12 col-lg-10">
+                                                    <img [src]="images.StudyRecords" id="imgHBTHPT" (click)="openModal(images.StudyRecords)" style="max-width:100%;cursor:pointer" alt="" width="100" class="modal-hover-opacity" height="100" />
+                                                    <br>
+                                                    <div class="custom-file mb-1">
+                                                        <input type="file" (change)="selectFile($event, 'StudyRecords')" class="custom-file-input" formControlName="StudyRecords" placeholder="Học bạ THPT" id="HBTHPT" required>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Chứng chỉ tiếng anh
+                                                </label>
+                                                <div class="col-sm-12 col-lg-10">
+                                                    <img [src]="images.EnglishCertificate" id="imgCCTA" (click)="openModal(images.EnglishCertificate)" style="max-width:100%;cursor:pointer" alt="" width="100" class="modal-hover-opacity" height="100" />
+                                                    <br>
+                                                    <div class="custom-file mb-1">
+                                                        <input type="file" class="custom-file-input" (change)="selectFile($event, 'EnglishCertificate')" formControlName="EnglishCertificate" placeholder="Chứng chỉ tiếng anh" id="CCTA" required>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-1"></div>
+
+                                        <div class="col-lg-5">
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Giấy khai sinh</label>
+                                                <div class="col-sm-12 col-lg-10">
+                                                    <img [src]="images.BirthCertificate" (click)="openModal(images.BirthCertificate)" style="max-width:100%;cursor:pointer" id="imgGKS" class="modal-hover-opacity" alt="" width="100" height="100" />
+                                                    <br>
+                                                    <div class="custom-file mb-1">
+                                                        <input type="file" class="custom-file-input" (change)="selectFile($event, 'BirthCertificate')" formControlName="BirthCertificate" placeholder="Giấy khai sinh" id="GKS" required>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Ảnh Chân dung</label>
+                                                <div class="col-sm-12 col-lg-10">
+                                                    <img [src]="images.PortraitImage" id="imgACD" alt="" (click)="openModal(images.PortraitImage)" style="max-width:100%;cursor:pointer" width="100" height="100" class="modal-hover-opacity" />
+                                                    <br>
+                                                    <div class="custom-file mb-1">
+                                                        <input type="file" class="custom-file-input" (change)="selectFile($event, 'PortraitImage')" formControlName="PortraitImage" placeholder="Ảnh Chân dung" id="ACD" required>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">CMND/CCCD </label>
+                                                <div class="col-sm-12 col-lg-10">
+                                                    <img [src]="images.CitizenIdentification" (click)="openModal(images.CitizenIdentification)" style="max-width:100%;cursor:pointer" id="imgCCCD" alt="" width="100" height="100" class="modal-hover-opacity" />
+                                                    <br>
+                                                    <div class="custom-file mb-1">
+                                                        <input type="file" class="custom-file-input" (change)="selectFile($event, 'CitizenIdentification')" formControlName="CitizenIdentification" placeholder="CMND/CCCD" id="CCCD" required>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group pt-2">
+                                                <label class="col-sm-12 control-label font-20">Các chứng chỉ, giấy tờ
+                                                    khác (nếu có)</label>
+                                                <div class="col-sm-12 col-lg-10">
+                                                    <img [src]="images.OtherPapers" id="imgCCK" alt="" (click)="openModal(images.OtherPapers)" style="max-width:100%;cursor:pointer" width="100" height="100" class="modal-hover-opacity" />
+                                                    <br>
+                                                    <div class="custom-file mb-1">
+                                                        <input type="file" class="custom-file-input" (change)="selectFile($event, 'OtherPapers')" formControlName="OtherPapers" placeholder="Các chứng chỉ, giấy tờ khác" id="CCK" required>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row button-infstudent text-center align-content-center ">
+                                        <div class="col-sm-6 form-group pt-2">
+                                            <br>
+                                            <button class="btn btn-sm btn-secondary" (click)="exportPdf()" type="button">Xuất file PDF
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-6 form-group pt-2">
+                                            <br>
+                                            <button class="btn btn-sm btn-info" type="submit">Chỉnh
+                                                sửa</button>
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# card -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+    var citis = document.getElementById("city");
+    var districts = document.getElementById("district");
+    var wards = document.getElementById("ward");
+    var Parameter = {
+        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+        method: "GET",
+        responseType: "application/json",
+    };
+    var promise = axios(Parameter);
+    promise.then(function (result) {
+        renderCity(result.data);
+    });
+
+    function renderCity(data) {
+        for (const x of data) {
+            citis.options[citis.options.length] = new Option(x.Name, x.Id); 
+        }
+        citis.onchange = function () {
+            district.length = 1;
+            ward.length = 1;
+            if (this.value != "") {
+                const result = data.filter(n => n.Id === this.value);
+
+                for (const k of result[0].Districts) {
+                    district.options[district.options.length] = new Option(k.Name, k.Id);
+                }
+            }
+        };
+        district.onchange = function () {
+            ward.length = 1;
+            const dataCity = data.filter((n) => n.Id === citis.value);
+            if (this.value != "") {
+                const dataWards = dataCity[0].Districts.filter(n => n.Id === this.value)[0].Wards;
+
+                for (const w of dataWards) {
+                    wards.options[wards.options.length] = new Option(w.Name, w.Id);
+                }
+            }
+        };
+    }
+</script>  -->

@@ -1,0 +1,106 @@
+<!--start wrapper-->
+<div class="wrapper">
+    <!--start top header-->
+    <app-header></app-header>
+    <!--end top header-->
+
+    <!--start sidebar -->
+    <aside class="sidebar-wrapper" data-simplebar="true">
+        <app-logo-gw></app-logo-gw>
+        <!--navigation-->
+        <ul class="metismenu" id="menu">
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="bi bi-house-fill"></i>
+                    </div>
+                    <div class="menu-title">Tuyển Sinh</div>
+                </a>
+                <ul>
+                    <li> <a [routerLink]="['/students/profilestudent', ID]"><i class="bi bi-circle"></i>Hồ sơ</a>
+                    </li>
+                    <li> <a [routerLink]="['/students/confirmevents', ID]"><i class="bi bi-circle"></i>Sự kiện</a>
+                    </li>
+                    <li> <a href="index2.html"><i class="bi bi-circle"></i>Tài Chính</a>
+                    </li>
+                </ul>
+            </li>
+
+            <div class="card shadow-sm border-5 bg-dark-subtle">
+                <div class="card-body">
+                    <div class=" text-center">
+                        <h3 class="mb-1">TRẠNG THÁI</h3>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-around mt-3 gap-3">
+                        <ul class="list-group list-group-flush text-center ">
+                            <p class="bg-danger text-white radius-15 p-1" *ngIf="profileStatus == 0"> Chưa đầy đủ hồ sơ </p>
+                            <p class="bg-success text-white radius-15 p-1" *ngIf="profileStatus == 1"> Đầy đủ hồ sơ </p>
+                            <div *ngFor="let payment of payments">
+                                <p [ngClass]="{'bg-danger': payment.Status == 0, 'bg-success': payment.Status == 1, 'bg-warning': payment.Status == 2}" class="text-white radius-15 p-1" *ngIf="payment.Status == 0">Chưa đủ {{ payment.FeeType.FeeType }}</p>
+                                <p [ngClass]="{'bg-danger': payment.Status == 0, 'bg-success': payment.Status == 1, 'bg-warning': payment.Status == 2}" class="text-white radius-15 p-1" *ngIf="payment.Status == 1">Đã đủ {{ payment.FeeType.FeeType }}</p>
+                                <p [ngClass]="{'bg-danger': payment.Status == 0, 'bg-success': payment.Status == 1, 'bg-warning': payment.Status == 2}" class="text-white radius-15 p-1" *ngIf="payment.Status == 2">Đang chờ xét duyệt {{ payment.FeeType.FeeType }}</p>
+                            </div>
+                            <p class="bg-danger text-white radius-15 p-1"> Học bổng </p>
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <li>
+                <a [routerLink]="['/registeraccount']">
+                    <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
+                    </div>
+                    <div class="menu-title">Yêu cầu xác minh phí</div>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/students/boxchat']">
+                    <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
+                    </div>
+                    <div class="menu-title">Liên hệ tư vấn tuyển sinh</div>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/registeraccount']">
+                    <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
+                    </div>
+                    <div class="menu-title">Hotline</div>
+                </a>
+            </li>
+            <!-- <li><a class='nav-link' [routerLink]="['/welcome']">Welcome</a></li> -->
+        </ul>
+        <!--end navigation-->
+    </aside>
+    <!--end sidebar -->
+
+
+    <!--start content-->
+    <main class="page-content">
+        <!-- <mat-slide-toggle color="primary" [checked]="true">Switch</mat-slide-toggle> -->
+
+        <router-outlet>
+
+        </router-outlet>
+        <app-footer></app-footer>
+    </main>
+
+
+
+    <!--end page main-->
+    <!--start overlay-->
+    <div class="overlay nav-toggle-icon"></div>
+    <!--end overlay-->
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+    <!--End Back To Top Button-->
+
+    <!--start switcher-->
+    <app-switcher-body></app-switcher-body>
+    <!--end switcher-->
+
+</div>
+<!--end wrapper-->

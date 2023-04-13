@@ -1,0 +1,73 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mt-2 mb-3">
+    <div class="breadcrumb-title pe-3">Admissions</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item">
+                    <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Yêu cầu xác minh tài chính
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!--end breadcrumb-->
+
+<div class="main">
+
+
+    <div class="card">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="login-content">
+
+                        <div class="login-form">
+                            <div class="login-logo text-center">
+                                <img src="../../../assets/main-files/snacked/ltr/assets/images/logo/logoGW.jpg">
+                            </div>
+                            <div class="card-title text-center">
+                                <h2>Yêu cầu xác minh phí</h2>
+                            </div>
+
+                            <form class="form-horizontal" [formGroup]="feeVerification" (ngSubmit)="onSubmit()" novalidate>
+
+                                <div class="form-group mb-2">
+                                    <h3>Họ và tên</h3>
+                                    <input [disabled]="true" formControlName="FullName" type="text" class="form-control" placeholder="Họ và Tên">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <h3>Số điện thoại</h3>
+                                    <input formControlName="Phone" type="phone" class="form-control" placeholder="Số điện thoại">
+                                </div>
+                                <div class="form-group mb-2 ">
+                                    <h3>Loại phí cần xác minh</h3>
+
+                                    <div *ngFor="let opt of listFee" class=" col-8 align-content-center m-auto">
+                                        <td class="pe-3">
+                                            <input [value]="opt.Id" (change)="onChange($event)" [checked]="opt.select" formControlName="checkbox" type="checkbox"> {{opt.FeeType}} - {{opt.Fee}} VNĐ
+                                            <br>
+                                        </td>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn bg-info btn-flat text-white">Yêu cầu xác minh</button>
+                                </div>
+                                <br>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.confirmButton div {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.confirmButton button {
+   
+   padding-right: 10px;
+   padding-left: 10px;
+   border-radius: 10px;
+   
+}

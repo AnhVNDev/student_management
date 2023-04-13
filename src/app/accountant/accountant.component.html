@@ -1,0 +1,108 @@
+
+
+
+    <!--start wrapper-->
+    <div class="wrapper">
+        <!--start top header-->
+        <app-header></app-header>
+        <!--end top header-->
+
+        <!--start sidebar -->
+        <aside class="sidebar-wrapper" data-simplebar="true">
+            <app-logo-gw></app-logo-gw>
+            <!--navigation-->
+            <ul class="metismenu" id="menu">
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class="bi bi-house-fill"></i>
+                        </div>
+                        <div class="menu-title">Application</div>
+                    </a>
+                    <ul>
+                        <li> <a [routerLink]="['/accountant/accountprofile']"><i class="bi bi-circle"></i>Hồ sơ</a>
+                        </li>
+                        <li><a [routerLink]="['/accountant/feeverification']"><i class="bi bi-circle"></i>Xác Minh Phí</a>
+                        </li>
+                        <li><a [routerLink]="['/accountant/edittypefee']"><i class="bi bi-circle"></i>Chỉnh sửa các loại phí</a>
+                        </li>
+                       
+                    </ul>
+                </li>
+
+                <!-- <div class="card shadow-sm border-3 overflow-hidden  bg-gradient-royal">
+                    <div class="card-body">
+                        <div class=" text-center ">
+                            <h3 class="mb-1 text-white">STATUS</h3>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-around mt-3 gap-3">
+                            
+        
+                                <ul class="list-group list-group-flush text-center ">
+                                    <p class="bg-danger text-white" >  Chưa đầy đủ hồ sơ  </p>
+                                    
+                                    <p class="bg-success text-white">  Phí xét tuyển  </p>
+                                    <p class="bg-success text-white">  Phí giữ chỗ  </p>
+                                    <p class="bg-danger text-white">  Học bổng  </p>
+                                </ul>
+                           
+                        </div>
+                       
+        
+                    </div>
+        
+                </div> -->
+
+                <li>
+                    <a [routerLink]="['/accountant/requestfee']">
+                        <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
+                        </div>
+                        <div class="menu-title">Yêu cầu xác minh phí</div>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/accountant/boxchat']">
+                        <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
+                        </div>
+                        <div class="menu-title">Liên hệ tư
+                            vấn tuyển sinh</div>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a [routerLink]="['/registeraccount']">
+                        <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
+                        </div>
+                        <div class="menu-title">Hotline</div>
+                    </a>
+                </li> -->
+                <!-- <li><a class='nav-link' [routerLink]="['/welcome']">Welcome</a></li> -->
+            </ul>
+            <!--end navigation-->
+        </aside>
+        <!--end sidebar -->
+
+
+        <!--start content-->
+        <main class="page-content">
+            <router-outlet>
+            
+            </router-outlet>
+            <app-footer></app-footer>
+        </main>
+       
+
+
+        <!--end page main-->
+        <!--start overlay-->
+        <div class="overlay nav-toggle-icon"></div>
+        <!--end overlay-->
+
+        <!--Start Back To Top Button-->
+        <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+        <!--End Back To Top Button-->
+
+        <!--start switcher-->
+        <app-switcher-body></app-switcher-body>
+        <!--end switcher-->
+
+    </div>
+    <!--end wrapper-->

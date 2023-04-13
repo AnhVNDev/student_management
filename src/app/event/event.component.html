@@ -1,0 +1,184 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">Admissions</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item">
+                    <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Sự Kiện
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="col-md-12 card radius-15 align-content-center ">
+    <div class="card-body">
+        <div class="card-body py-3">
+            <div class=" border-bottom-0">
+
+                <div class="row">
+
+                    <!-- search -->
+                    <div class="col-md-5  me-auto">
+                        <div class=" position-relative">
+                            <h1> Events</h1>
+                            <h3>Sự kiện trong tháng</h3>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="col-sm-4 justify-content-end" me-auto>
+                        <div class="bg-light-pink  bg-gradient-voilet  border-4 radius-30 me-auto">
+                            <div class="row form-control-sm">
+                                <div class="col-sm-2 text-center align-items-center radius-30 m-auto">
+                                    <i class="fadeIn animated bx bx-calendar-heart font-35 text-dark"></i>
+                                </div>
+
+                                <div class="col-sm-10 text-black text-break">
+
+                                    <h2 class="row radius-30">Change Semester</h2>
+
+                                    <select class="btn btn-block radius-30 m-auto col-11 hovering-zoom" type="button">
+                                        <option *ngFor="let opt of ngSemester" class="bg-light-info radius-30">{{opt}}
+                                        </option>
+                                    </select>
+
+                                    <!-- <li class="row">
+                
+                                </li> -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                    </div>
+                    <br>
+
+
+
+                </div>
+
+                <div class="row">
+                    <!-- lich -->
+                    <div class="card col-md-7 me-auto shadow-lg">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div id='calendar'>
+                                    <full-calendar [options]="calendarOptions"></full-calendar>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" col-md-4 justify-content-end">
+                        <h2 class="text-center">Events List</h2>
+                        <div class="card shadow-lg">
+                            <div class="col-md-11 m-auto">
+                                <div class="row">
+                                    <div class='col-md-10'>
+                                        <h3 class="text-info">Nov 12th, 2020</h3>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="fs-5 ms-auto dropdown col-10 m-auto">
+                                            <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
+                                                data-bs-toggle="dropdown"><i
+                                                    class="fadeIn animated bx bx-dots-vertical-rounded"></i></div>
+                                            <div class="dropdown-menu col-10 m-1 mb-1 ms-2 ">
+                                                <li><a [routerLink]="['/admissions/addstudentevent']" href="#">Thêm sinh viên vào sự kiện</a></li>
+                                                <li><a [routerLink]="['/admissions/liststudentevent']"  href="#">Xem chi tiết</a></li>
+                                                <li><a
+                                                     [routerLink]="['/admissions/checkincheckout']"  href="#">Check-in/ Checkout</a></li>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <h1> Name Event</h1>
+                                <div class="row">
+                                    <div class="col-md-9 me-auto">
+                                        <h4>Time: 8:00 AM - 9:00 AM</h4>
+                                    </div>
+                                    <div class="col-md-3 justify-content-end">
+                                        <h3>Chi phí</h3>
+                                    </div>
+                                </div>
+                                <h3>PM</h3>
+                                <div class="progress " style="height:7px;">
+                                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 70%"
+                                        aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-warning text-center">Còn 30 vé trống</h3>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <br>
+                        <div class="card shadow-lg">
+                            <div class="col-md-11 m-auto">
+                                <div class="row">
+                                    <div class='col-md-10'>
+                                        <h3 class="text-info">Nov 12th, 2020</h3>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="fs-5 ms-auto dropdown col-10 m-auto">
+                                            <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
+                                                data-bs-toggle="dropdown"><i
+                                                    class="fadeIn animated bx bx-dots-vertical-rounded"></i></div>
+                                            <div class="dropdown-menu col-10 m-1 mb-1 ms-2 ">
+                                                <li><a [routerLink]="['/admissions/addstudentevent']" href="#">Thêm sinh viên vào sự kiện</a></li>
+                                                <li><a [routerLink]="['/admissions/liststudentevent']"  href="#">Xem chi tiết</a></li>
+                                                <li><a
+                                                     [routerLink]="['/admissions/checkincheckout']"  href="#">Check-in/ Checkout</a></li>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <h1> Name Event</h1>
+                                <div class="row">
+                                    <div class="col-md-9 me-auto">
+                                        <h4>Time: 8:00 AM - 9:00 AM</h4>
+                                    </div>
+                                    <div class="col-md-3 justify-content-end">
+                                        <h3>Chi phí</h3>
+                                    </div>
+                                </div>
+                                <h3>PM</h3>
+                                <div class="progress " style="height:7px;">
+                                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 94%"
+                                        aria-valuenow="94" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-warning text-center">Còn 6 vé trống</h3>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>

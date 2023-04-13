@@ -1,0 +1,47 @@
+* {
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.eachFee {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fee {
+    margin-top: 15px;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    background-color: rgb(239, 239, 239);
+    margin-right: 20px;
+}
+
+.btnFee {
+    display: flex;
+    justify-content: end;
+}
+
+.btnFee button {
+    margin-top: 5px;
+    height: 37px;
+    margin-right: 3px;
+}
+
+.drwYear {
+    margin-top: 5px;
+    display: flex;
+    justify-content: end;
+    margin-right: 3px;
+}
+
+.txtFee {
+    margin-top: 10px;
+}
+
+#drwYearNe button {
+    color: #C2DEFF;
+}

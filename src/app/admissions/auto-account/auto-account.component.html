@@ -1,0 +1,95 @@
+<div class="main">
+
+
+    <div class="card">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="login-content">
+
+                        <div class="login-form">
+                            <div class="login-logo text-center">
+                                <img src="../../../assets/main-files/snacked/ltr/assets/images/logo/logoGW.jpg">
+                            </div>
+                            <div class="card-title text-center">
+                                <h2>TẠO TÀI KHOẢN TỰ ĐỘNG</h2>
+                            </div>
+
+                            <form [formGroup]="accountForm" (ngSubmit)="CreateNewAccount(accountForm.value)">
+                                <div class="form-group mb-2">
+                                    <label class="font-20">Số điện thoại</label>
+                                    <input formControlName="Phone" type="phone" class="form-control"
+                                        placeholder="Số điện thoại">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label class="font-20">Họ và tên</label>
+                                    <input formControlName="FullName" type="text" class="form-control"
+                                        placeholder="Họ và Tên">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label class="font-20">Nguồn hồ sơ</label>
+                                    <div>
+                                        <select class="form-select form-select-sm" formControlName="Sourceinfor">
+
+                                            <option *ngFor="let opt of ngOptionsSourceinfor" [value]="opt">
+                                                {{opt}}
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label class="font-20">Email</label>
+                                    <input formControlName="Email" type="email" class="form-control"
+                                        placeholder="Email">
+                                </div>
+
+                                <div class="form-group mb-2">
+                                    <label class="font-20">Mật khẩu</label>
+                                    <input formControlName="Password" type="password" class="form-control"
+                                        placeholder="********">
+                                </div>
+                                <br>
+
+                                <a id="aHtml" *ngIf="aElement" (click)="onclick()" (visible)="true"
+                                    [routerLink]="['/admissions/registeraccount/newaccount']">Thông tin
+                                    tài khoản mới</a>
+                                <br>
+                                <router-outlet>
+                                </router-outlet>
+
+                                <br><br>
+                                <div class="text-center">
+                                    <button type="submit" class="btn bg-info btn-flat">Tạo tài khoản tự động
+                                        mới</button>
+                                </div>
+
+                                <br>
+                                <br>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<script>
+    var x = location.href;
+    console.log("x laf: " + x);
+    if (x == "http://localhost:4200/admissions/registeraccount/newaccount") {
+        document.getElementById("aHtml").style.display = "none";
+    }
+</script>

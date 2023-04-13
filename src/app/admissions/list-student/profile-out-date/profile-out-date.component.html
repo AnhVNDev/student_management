@@ -1,0 +1,97 @@
+<h2 class="text-center text-black"> Danh sách hồ sơ quá hạn</h2>
+<table class="table  mb-3">
+    
+    <thead class="align-middle text-center table-light">
+        <tr>
+            <td>
+                <input class="form-check-input table__checkbox" type="checkbox">
+            </td>
+            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ">
+                ID</th>
+            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">
+                Deadline</th>
+            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">
+                Tên sinh viên</th>
+            <th class="text-uppercase text-xxs font-weight-bolder opacity-7 ps-2">
+                Trường</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Nguồn nhập học</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Ngành</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Liên lạc</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Phí</th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Hồ sơ </th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7">
+                Note</th>
+        </tr>
+
+    </thead>
+    <tbody class="align-middle text-center">
+        <tr>
+            <td>
+                <input class="form-check-input table__checkbox" type="checkbox">
+            <td>
+
+                <p class="mb-0 text-sm">12</p>
+
+            </td>
+            <td>
+                <p class="mb-0 text-sm">12/12/2021</p>
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0"><a [routerLink]="['/admissions/liststudent/formprofile']" >Nguyễn Ngọc Anh</a></p>
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0">THPT Cầu Giấy</p>
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0">Database</p>
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0">CNTT</p>
+            </td>
+            <td>
+                <div class="d-flex align-items-center gap-3 fs-6">
+                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        title="" data-bs-original-title="View detail" aria-label="Views"><i
+                            class="bi bi-eye-fill"></i></a>
+                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        title="" data-bs-original-title="Email" aria-label="Email"><i class="lni lni-envelope"></i></a>
+
+                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        title="" data-bs-original-title="Chat Box" aria-label="Chat Box"><i
+                            class="fadeIn animated bx bx-message-detail"></i></a>
+                </div>
+            </td>
+
+
+            <td>
+                <p class="text-sm font-weight-bold mb-0 bg-danger">Chưa nộp phí</p>
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0 bg-success">Đủ hồ sơ</p>
+            </td>
+            <td>
+                <p class="text-sm font-weight-bold mb-0 ">Chưa có note</p>
+            </td>
+        </tr>
+
+    </tbody>
+
+
+</table>
+<div class="row button-infstudent text-center align-content-center ">
+    <div class="col-sm-6 form-group">
+        <br>
+        <button class="btn btn-sm btn-warning" type="submit">Nhắc Nhở
+        </button>
+    </div>
+    <div class="col-sm-6 form-group">
+        <br>
+        <button class="btn btn-sm btn-danger" type="submit">Xóa</button>
+    </div>
+
+</div>

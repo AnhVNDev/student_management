@@ -1,0 +1,10 @@
+.toast {
+    background-color: #2ecc71 !important;
+}
+
+
+/* Ghi đè lớp .toast-success */
+
+.toast-success {
+    background-color: #2ecc71 !important;
+}

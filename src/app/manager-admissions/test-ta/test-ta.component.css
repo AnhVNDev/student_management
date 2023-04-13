@@ -1,0 +1,49 @@
+@media screen and (min-width: 850px) {
+    .page-content {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    #filterButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 280px;
+        
+    }
+
+    #filterButton button {
+        width: 100px;
+    }
+}
+
+.userZone {
+    display: inline-flex;
+    justify-content: flex-start;
+    width: 200px;
+}
+
+.ckMajor {
+    margin-bottom: 3px;
+}
+
+.fsFilter {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+
+#footerModal {
+    display: flex;
+    place-content: center;
+}
+
+.linkTable {
+    width: 350px;
+}
+
+.linkTable a{
+    text-decoration: none;
+    color: black;
+}

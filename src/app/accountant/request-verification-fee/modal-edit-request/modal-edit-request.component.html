@@ -1,0 +1,52 @@
+<div class="card">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="login-content">
+
+                    <div class="login-form">
+                        <div class="login-logo text-center">
+                            <img src="../../../assets/main-files/snacked/ltr/assets/images/logo/logoGW.jpg">
+                        </div>
+                        <div class="card-title text-center">
+                            <h2>Yêu cầu xác minh phí</h2>
+                        </div>
+
+                        <form class="form-horizontal" [formGroup]="feeVerification" (ngSubmit)="onSubmit()" novalidate>
+
+                            <div class="form-group mb-2">
+                                <h3>Họ và tên</h3>
+                                <input [disabled]="true" formControlName="FullName" type="text" class="form-control"
+                                    placeholder="Họ và Tên">
+                            </div>
+                            <div class="form-group mb-2">
+                                <h3>Số điện thoại</h3>
+                                <input formControlName="Phone" type="phone" class="form-control"
+                                    placeholder="Số điện thoại">
+                            </div>
+                            <div class="form-group mb-2 ">
+                                <h3>Tên loại phí</h3>
+
+                            </div>
+                            <div class="form-group mb-2 ">
+                                <h3>Trạng Thái </h3>
+                                <select formControlName="Status" class="form-control">
+                                    <option value="0">Đã nộp</option>
+                                    <option value="1">Chưa nộp </option>
+                                    <option value="1">Đang xử lý</option>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn bg-info btn-flat text-white">Phản hồi yêu cầu xác minh</button>
+                            </div>
+                            <br>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

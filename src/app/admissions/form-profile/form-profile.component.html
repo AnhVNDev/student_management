@@ -1,0 +1,646 @@
+<!-- /# row -->
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center">
+    <!-- <div class="breadcrumb-title pe-3 text-white">Pages</div> -->
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt text-white"></i></a>
+                </li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Thông tin sinh viên</li>
+            </ol>
+        </nav>
+    </div>
+
+</div>
+<!--end breadcrumb-->
+
+<div class="profile-cover bg-dark"></div>
+
+<div class="row">
+
+    <div class="card shadow-sm border-0 overflow-hidden">
+        <div class="card-body">
+            <div class="profile-avatar text-center">
+                <img src="../../assets/main-files/snacked/ltr/assets/images/avatars/avatar-1.png" class="rounded-circle shadow" width="120" height="120" alt="">
+            </div>
+
+        </div>
+
+    </div>
+    <!--  -->
+    <div class="col-12 col-lg-4">
+
+        <div class="card shadow-sm border-0 overflow-hidden ">
+            <div class="card-body">
+                <div class=" text-center">
+                    <h2 class="mb-1">TRẠNG THÁI</h2>
+                </div>
+                <div class="d-flex align-items-center justify-content-around mt-3 gap-3">
+                    <ul class="list-group list-group-flush text-center ">
+                        <p class="bg-danger text-white radius-15 p-1" *ngIf="profileStatus == 0"> Chưa đầy đủ hồ sơ </p>
+                        <p class="bg-success text-white radius-15 p-1" *ngIf="profileStatus == 1"> Đầy đủ hồ sơ </p>
+                        <div *ngFor="let payment of payments">
+                            <p [ngClass]="{'bg-danger': payment.Status == 0, 'bg-success': payment.Status == 1, 'bg-warning': payment.Status == 2}" class="text-white radius-15 p-1" *ngIf="payment.Status == 0">Chưa đủ {{ payment.FeeType.FeeType }}</p>
+                            <p [ngClass]="{'bg-danger': payment.Status == 0, 'bg-success': payment.Status == 1, 'bg-warning': payment.Status == 2}" class="text-white radius-15 p-1" *ngIf="payment.Status == 1">Đã đủ {{ payment.FeeType.FeeType }}</p>
+                            <p [ngClass]="{'bg-danger': payment.Status == 0, 'bg-success': payment.Status == 1, 'bg-warning': payment.Status == 2}" class="text-white radius-15 p-1" *ngIf="payment.Status == 2">Đang chờ xét duyệt {{ payment.FeeType.FeeType }}</p>
+                        </div>
+                        <p class="bg-danger text-white radius-15 p-1"> Chưa xét duyệt Học bổng </p>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="card shadow-sm border-0 overflow-hidden ">
+            <div class="card-body">
+                <div class=" text-center">
+                    <h2 class="mb-1">Tình Trạng Thay Đổi</h2>
+                </div>
+                <div class="d-flex align-items-center justify-content-around mt-5 gap-3">
+                    <div class="form-group form-check">
+                        <input class="form-check-input" type="checkbox" id="check">
+                        <label class="form-check-label" for="check"> Thay đổi CCCD - lúc 23:00 giờ, ngày
+                            12/03/2022</label>
+                    </div>
+                </div>
+                <div class="row button-infstudent text-center align-content-center ">
+                    <div class="col-sm-6 form-group">
+                        <br>
+                        <button class="btn btn-sm btn-danger text-white" type="submit">Xóa Bỏ
+                        </button>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <br>
+                        <button class="btn btn-sm btn-info text-white" type="submit">Chấp Thuận</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="card shadow-sm border-0 overflow-hidden  bg-warning">
+            <div class="card-body">
+                <div class=" text-center">
+                    <h2 class="mb-1">Học Bổng</h2>
+                </div>
+                <div class="text-center">
+                    <h3 class="mb-1 text-success">{{scholarshipStudent.Status == 2 ? "Chờ phê duyệt" : ((scholarshipStudent.Status == 1)? "Đã được phê duyệt" : ((scholarshipStudent.Status == 4)? "Đã hết hạn" : "Không được phê duyệt"))}}</h3>
+                </div>
+                <div class=" align-items-center justify-content-around mt-2 gap-3">
+
+
+                    <h1 class="text-primary text-center">{{scholarshipStudent.TypeScholarship}}</h1>
+
+                    <h4 class=" text-center"> Deadline: {{scholarshipStudent.Deadline | date: 'dd-MM-yyyy'}}</h4>
+
+                </div>
+
+                <!-- <div class="row button-infstudent text-center align-content-center ">
+                    <div class="col-sm-12 form-group">
+                        <br>
+                        <button class="btn btn-sm btn-danger" type="submit">Edit
+                        </button>
+                    </div>
+
+                </div> -->
+                <div class="row button-infstudent text-center align-content-center ">
+                    <div class="col-sm-6 form-group">
+                        <br>
+                        <a [routerLink]="['/admissions/scholarship', idStudent]"><button class="btn btn-sm btn-danger text-white" type="submit">Chỉnh Sửa
+                        </button></a>
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        <br>
+                        <button class="btn btn-sm btn-info text-white" type="submit">Gửi Trưởng Phòng</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="col-lg-8">
+        <div class="card">
+            <br>
+            <div class="row">
+                <h3 class="text-center text-success" *ngIf="editStatus == 1">Thông tin đang được quyền Chỉnh Sửa</h3>
+                <h3 class="text-center text-warning" *ngIf="editStatus == 2">Đang chờ tuyển sinh cấp phép Chỉnh sửa...</h3>
+                <h3 class="text-center text-danger" *ngIf="editStatus == 0">Thông tin không cho phép Chỉnh sửa</h3>
+            </div>
+            <button class="btn btn-sm btn-info text-white text-center align-content-center m-auto" type="button" data-bs-toggle="modal" data-bs-target="#financeModal">Yêu cầu xác minh tài
+                chính</button>
+            <div class="col">
+
+                <!-- Modal -->
+                <div class="modal fade" #myModal id="financeModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <app-financial-verification [listFee]="listFee"></app-financial-verification>
+
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row button-infstudent text-center align-content-center ">
+                <br>
+                <div class="col-sm-2 form-group"></div>
+
+                <div class="col-sm-4 form-group">
+                    <br>
+                    <button (click)="updateAllowEditing(1)" *ngIf="editStatus == 2 || editStatus == 0" class="btn btn-sm btn-info text-white " type="submit">Mở quyền Edit
+                        
+                    </button>
+                    <button (click)="updateAllowEditing(0)" *ngIf="editStatus == 1" class="btn btn-sm btn-danger text-white " type="submit">Đóng quyền Edit  </button>
+                </div>
+
+
+
+                <div class="col-sm-4 form-group">
+                    <br>
+                    <button (click)="updateProfileStatus(1)" *ngIf="profileStatus == 0" class="btn btn-sm btn-success text-white" type="submit">Xác nhận đủ hồ sơ</button>
+                    <button (click)="updateProfileStatus(0)" *ngIf="profileStatus == 1" class="btn btn-sm btn-danger text-white" type="submit">Xác nhận chưa đủ hồ sơ</button>
+                </div>
+
+            </div>
+            <br>
+            <div class="card-title text-center">
+                <h2>THÔNG TIN CÁ NHÂN</h2>
+
+            </div>
+            <div class="card-body">
+                <div class="horizontal-form-elements">
+
+                    <form class="form-horizontal" [formGroup]="uploadForm" enctype="multipart/form-data" (ngSubmit)="onSubmit()" novalidate>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Họ Và Tên</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" placeholder="Họ và Tên" formControlName="FullName">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Giới Tính</label>
+                                    <div class="col-sm-12">
+
+                                        <select class="form-select" formControlName="Gender">
+
+                                            <option *ngFor="let opt of ngOptionsGender" [value]="opt">
+                                                {{opt}}
+                                            </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <!-- /# column -->
+                        <div class="row">
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Ngày Sinh</label>
+                                    <div class="col-sm-12">
+                                        <input type="date" class="form-control" placeholder="" formControlName="Birthday">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Nơi Sinh</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" placeholder="Nơi Sinh" formControlName="PlaceOfBirth">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Quốc Tịch</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" placeholder="Quốc Tịch" formControlName="Nationality">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">CCCD</label>
+                                    <div class="col-sm-12">
+                                        <input type="number" class="form-control" placeholder="Căn cước công dân" formControlName="CitizenIdentificationNum">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Ngày cấp</label>
+                                    <div class="col-sm-12">
+                                        <input type="date" class="form-control" placeholder="" formControlName="DateCitizen">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Nơi cấp</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" placeholder=" Nơi cấp" formControlName="PlaceCitizen">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <!-- /# column -->
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <h3 class="col-sm-12 control-label">Trường THPT</h3>
+                                    <div class="row">
+                                        <div class="col-sm-12 form-group ">
+                                            <label>Tỉnh/Thành phố</label>
+                                            <div class="col-sm-12">
+                                                <select class="form-select" formControlName="provinceTHPT">
+
+                                                    <option *ngFor="let opt of ngOptionsProvinceTHPT" [value]="opt">
+                                                        {{opt}}
+                                                    </option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-12 form-group">
+                                        <label>Tên Trường THPT</label>
+                                        <select class="form-select" formControlName="HightSchool" placeholder="Tên trường THPT">
+
+                                            <option *ngFor="let opt of ngOptionsHightSchool" [value]="opt">
+                                                {{opt}}
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4"></div>
+
+                            <div class="col-lg-4">
+                                <br>
+                                <div class="form-group">
+
+
+                                    <div class="col-sm-12 form-group">
+                                        <label>Năm tốt nghiệp</label>
+                                        <select class="form-select" formControlName="GraduationYear" aria-label="">
+                                            <option *ngFor="let year of years" [value]="year">
+                                                {{year}}
+                                            </option>
+                                        </select>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="row">
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Số điện thoại cá
+                                        nhân</label>
+                                    <div class="col-sm-12">
+                                        <input type="phone" class="form-control" placeholder="SDT cá nhân thường sử dụng" formControlName="Phone">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Link Facebook</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" placeholder="Link Facebook cá nhân" formControlName="LinkFacebook">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4"></div>
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Ngành học</label>
+                                    <div class="col-sm-12">
+                                        <select class="form-select" formControlName="Majors">
+                                            <option *ngFor="let opt of ngOptionsMajors">{{opt}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Email</label>
+                                    <div class="col-sm-12">
+                                        <input type="email" class="form-control" formControlName="Email" placeholder="Email cá nhân">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <br>
+                        <div class="row">
+
+                            <div class="form-group">
+                                <h3 class="col-sm-12 control-label">ĐỊA CHỈ</h3>
+
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="col-sm-12 control-label">Tỉnh/Thành phố</label>
+                                            <div class="col-sm-12">
+                                                <select class="form-select " id="city">
+                                                    <option value="" selected>Chọn tỉnh thành</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="col-sm-12 control-label">Quận/Huyện</label>
+                                            <div class="col-sm-12">
+                                                <select class="form-select " id="district">
+                                                    <option value="" selected>Chọn quận/huyện</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="col-sm-12 control-label">Phường/Xã</label>
+                                            <div class="col-sm-12">
+                                                <select class="form-select" id="ward">
+                                                    <option value="" selected>Chọn phường/xã</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="col-sm-12 control-label">Địa chỉ cụ thể (số nhà
+                                                riêng/thôn/xóm)</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" placeholder="Ví dụ: Số 5,...." formControlName="privateAddress" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Người Bảo Hộ 1</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" placeholder="Họ Và Tên Người Bảo Hộ 1" formControlName="NameSponsor1">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Số điên thoại
+                                    </label>
+                                    <div class="col-sm-12">
+                                        <input type="phone" class="form-control" placeholder="Số điên thoại" formControlName="PhoneNumberSponsor1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4"></div>
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Email</label>
+                                    <div class="col-sm-12">
+                                        <input type="email" class="form-control" placeholder="Email" formControlName="EmailSponsor1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Họ Tên Người Bảo Hộ 2</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" placeholder="Họ và tên người bảo hộ 2" formControlName="NameSponsor2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Số điên thoại
+                                    </label>
+                                    <div class="col-sm-12">
+                                        <input type="phone" class="form-control" placeholder="Số điên thoại" formControlName="PhoneNumberSponsor2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4"></div>
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Email</label>
+                                    <div class="col-sm-12">
+                                        <input type="email" class="form-control" placeholder="Email" formControlName="EmailSponsor2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card-title text-center">
+                            <h2>HỒ SƠ</h2>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-5">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label" for="BangTNTHPT">Bằng tốt
+                                        nghiệp
+                                        THPT</label>
+                                    <div class="col-sm-12 col-lg-10">
+                                        <img [src]="images.CertificateOfGraduation" id="imgBangTNTHPT" alt="" width="100" height="100" *ngIf="images.CertificateOfGraduation" />
+                                        <br>
+                                        <div class="custom-file mb-1">
+                                            <input type="file" class="custom-file-input" formControlName="CertificateOfGraduation" placeholder="Bằng tốt nghiệp THPT" id="BangTNTHPT" required>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Giấy chứng nhận tốt
+                                        nghiệp
+                                        THPT tạm thời (gốc)</label>
+                                    <div class="col-sm-12 col-lg-10">
+                                        <img [src]="images.TemporaryCertificateOfGraduation" id="imgGCNTNTT" alt="" width="100" height="100" *ngIf="images.TemporaryCertificateOfGraduation" />
+                                        <br>
+                                        <div class="custom-file mb-1">
+                                            <input type="file" class="custom-file-input" formControlName="TemporaryCertificateOfGraduation" placeholder="Giấy chứng nhận tốt nghiệp THPT" id="GCNTNTT" required>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Học Bạ THPT </label>
+                                    <div class="col-sm-12 col-lg-10">
+                                        <img [src]="images.StudyRecords" id="imgHBTHPT" alt="" width="100" height="100" *ngIf="images.StudyRecords" />
+                                        <br>
+                                        <div class="custom-file mb-1">
+                                            <input type="file" class="custom-file-input" formControlName="StudyRecords" placeholder="Học bạ THPT" id="HBTHPT" required>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Chứng chỉ tiếng anh
+                                    </label>
+                                    <div class="col-sm-12 col-lg-10">
+                                        <img [src]="images.EnglishCertificate" id="imgCCTA" alt="" width="100" height="100" *ngIf="images.EnglishCertificate" />
+                                        <br>
+                                        <div class="custom-file mb-1">
+                                            <input type="file" class="custom-file-input" formControlName="EnglishCertificate" placeholder="Chứng chỉ tiếng anh" id="CCTA" required>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-1"></div>
+
+                            <div class="col-lg-5">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Giấy khai sinh</label>
+                                    <div class="col-sm-12 col-lg-10">
+                                        <img [src]="images.BirthCertificate" id="imgGKS" alt="" width="100" height="100" *ngIf="images.BirthCertificate" />
+                                        <br>
+                                        <div class="custom-file mb-1">
+                                            <input type="file" class="custom-file-input" formControlName="BirthCertificate" placeholder="Giấy khai sinh" id="GKS" required>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Ảnh Chân dung</label>
+                                    <div class="col-sm-12 col-lg-10">
+                                        <img [src]="images.PortraitImage" id="imgACD" alt="" width="100" height="100" *ngIf="images.PortraitImage" />
+                                        <br>
+                                        <div class="custom-file mb-1">
+                                            <input type="file" class="custom-file-input" formControlName="PortraitImage" placeholder="Ảnh Chân dung" id="ACD" required>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">CMND/CCCD </label>
+                                    <div class="col-sm-12 col-lg-10">
+                                        <img [src]="images.CitizenIdentification" (click)="openModal(images.CitizenIdentification)" style="max-width:100%;cursor:pointer" id="imgCCCD" alt="" width="100" height="100" class="modal-hover-opacity" />
+                                        <br>
+                                        <div class="custom-file mb-1">
+                                            <input type="file" class="custom-file-input" (change)="selectFile($event, 'CitizenIdentification')" formControlName="CitizenIdentification" placeholder="CMND/CCCD" id="CCCD" required>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label">Các chứng chỉ, giấy tờ
+                                        khác (nếu có)</label>
+                                    <div class="col-sm-12 col-lg-10">
+                                        <img [src]="images.OtherPapers" id="imgCCK" alt="" width="100" height="100" *ngIf="images.OtherPapers" />
+                                        <br>
+                                        <div class="custom-file mb-1">
+                                            <input type="file" class="custom-file-input" formControlName="OtherPapers" placeholder="Các chứng chỉ, giấy tờ khác" id="CCK" required>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row button-infstudent text-center align-content-center ">
+                            <div class="col-sm-6 form-group">
+                                <br>
+                                <button class="btn btn-sm btn-secondary" type="submit">Xuất file PDF
+                                </button>
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <br>
+                                <button class="btn btn-sm btn-info text-white" type="submit">Chỉnh
+                                    sửa</button>
+                            </div>
+
+                        </div>
+
+
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- /# card -->
+    </div>
+    <!-- /# column -->
+</div>
+<!-- /# row -->
+
+
+<!-- <app-footer-admissions></app-footer-admissions> -->
+
+<!-- </div>
+</div> -->

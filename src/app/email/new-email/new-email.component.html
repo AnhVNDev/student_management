@@ -1,0 +1,62 @@
+<!--start compose mail-->
+<!-- <div class="compose-mail-popup"> -->
+<div class="card">
+    <div class="card-header bg-dark text-white py-2 cursor-pointer">
+        <div class="d-flex align-items-center">
+            <div class="compose-mail-title">New Message</div>
+            <div class="compose-mail-close ms-auto ">
+                <a [routerLink]="['/admissions/email/emailbox']" href="javascript:;" class="text-danger">x</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="emailForm" (ngSubmit)="sendEmail()">
+            <div class="email-form">
+                <div class="mb-3">
+                    <span class="form-control">
+                        <input type="text" class="form-control" placeholder="To" formControlName="to" />
+                        <input type="file" (change)="onFileChange($event)" formControlName="emailFile" accept=".xlsx">
+                    </span>
+
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Subject" formControlName="subject" />
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" placeholder="Message" formControlName="text" rows="8" cols="10"></textarea>
+                </div>
+                <div class="mb-0">
+                    <div class="d-flex align-items-center">
+                        <div class="">
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-primary">Sent</button>
+
+                            </div>
+                        </div>
+                        <div class="ms-2">
+                            <button type="button" class="btn border-0 btn-sm btn-white"><i
+                                    class="lni lni-text-format"></i>
+                            </button>
+                            <button type="button" class="btn border-0 btn-sm btn-white"><i class='bx bx-link-alt'></i>
+                            </button>
+                            <button type="button" class="btn border-0 btn-sm btn-white"><i
+                                    class="lni lni-emoji-tounge"></i>
+                            </button>
+                            <button type="button" class="btn border-0 btn-sm btn-white"><i
+                                    class="lni lni-google-drive"></i>
+                            </button>
+                        </div>
+                        <div class="ms-auto">
+                            <button type="button" class="btn border-0 btn-sm btn-white"><i class="lni lni-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<!-- </div> -->
+<!--end compose mail-->
