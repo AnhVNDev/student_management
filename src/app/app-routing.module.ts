@@ -40,6 +40,7 @@ import { ConfirmEventsComponent } from './students/confirm-events/confirm-events
 import { ScholarshipProposalComponent } from './admissions/form-profile/scholarship-proposal/scholarship-proposal.component';
 import { RequestVerificationFeeComponent } from './accountant/request-verification-fee/request-verification-fee.component';
 import { ChatAdmissionComponent } from './admissions/chat-admission/chat-admission.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 
@@ -54,13 +55,8 @@ const routes: Routes = [
     path: 'students', component: StudentsComponent,
     children: [
       { path: 'profilestudent/:ID', component: ProfileStudentComponent },
-      { path: 'boxchat', component: ChatboxComponent },
-      // { path: 'profilestudent/:id', component: ProfileStudentComponent },
+      { path: 'boxchat', component: MessagesComponent },
       { path: 'confirmevents/:ID', component: ConfirmEventsComponent },
-
-
-      // canActivate: [StudentGuard] 
-
     ]
   },
   { path: 'login', component: LoginComponent },

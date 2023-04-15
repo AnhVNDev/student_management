@@ -179,7 +179,7 @@ import { ModalEditRequestComponent } from './accountant/request-verification-fee
 import { ApiService } from './api.service';
 import { MessagesService } from './message/messages.service';
 import { ChatAdmissionComponent } from './admissions/chat-admission/chat-admission.component';
-
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -239,6 +239,7 @@ import { ChatAdmissionComponent } from './admissions/chat-admission/chat-admissi
     RequestVerificationFeeComponent,
     ModalEditRequestComponent,
     ChatAdmissionComponent,
+    MessagesComponent,
     
 
   ],

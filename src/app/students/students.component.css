@@ -8,3 +8,15 @@
 .toast-success {
     background-color: #2ecc71 !important;
 }
+
+.break-menu{
+    margin-left: 6px;
+}
+
+.break-menu>li {
+    padding: 4px;
+}
+
+.fs-15{
+    font-size: 15px !important;
+}

@@ -32,7 +32,7 @@ export class ChatboxComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.setupSocketConnection();
+    //this.setupSocketConnection();
    
    
   }

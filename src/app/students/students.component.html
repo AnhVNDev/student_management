@@ -10,19 +10,26 @@
         <!--navigation-->
         <ul class="metismenu" id="menu">
             <li>
-                <a href="javascript:;" class="has-arrow">
+                <a class="has-arrow">
                     <div class="parent-icon"><i class="bi bi-house-fill"></i>
                     </div>
-                    <div class="menu-title">Tuyển Sinh</div>
+                    <div class="menu-title">Hồ sơ và sự kiện</div>
                 </a>
-                <ul>
-                    <li> <a [routerLink]="['/students/profilestudent', ID]"><i class="bi bi-circle"></i>Hồ sơ</a>
+                <ul class="break-menu">
+                    <li> <a [routerLink]="['./profilestudent', ID]"><i class="bi bi-person-square fs-15"></i>Hồ sơ</a>
                     </li>
-                    <li> <a [routerLink]="['/students/confirmevents', ID]"><i class="bi bi-circle"></i>Sự kiện</a>
-                    </li>
-                    <li> <a href="index2.html"><i class="bi bi-circle"></i>Tài Chính</a>
+                    <li> <a [routerLink]="['./confirmevents', ID]"><i class="bi bi-calendar-event-fill fs-15"></i>Sự kiện</a>
                     </li>
                 </ul>
+            </li>
+
+            <li>
+                <a [routerLink]="['./boxchat']">
+                    <div class="parent-icon">
+                        <i class="bi bi-chat-dots-fill"></i>
+                    </div>
+                    <div class="menu-title">Liên hệ tư vấn tuyển sinh</div>
+                </a>
             </li>
 
             <div class="card shadow-sm border-5 bg-dark-subtle">
@@ -48,28 +55,6 @@
                 </div>
 
             </div>
-
-            <li>
-                <a [routerLink]="['/registeraccount']">
-                    <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
-                    </div>
-                    <div class="menu-title">Yêu cầu xác minh phí</div>
-                </a>
-            </li>
-            <li>
-                <a [routerLink]="['/students/boxchat']">
-                    <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
-                    </div>
-                    <div class="menu-title">Liên hệ tư vấn tuyển sinh</div>
-                </a>
-            </li>
-            <li>
-                <a [routerLink]="['/registeraccount']">
-                    <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
-                    </div>
-                    <div class="menu-title">Hotline</div>
-                </a>
-            </li>
             <!-- <li><a class='nav-link' [routerLink]="['/welcome']">Welcome</a></li> -->
         </ul>
         <!--end navigation-->
@@ -79,12 +64,9 @@
 
     <!--start content-->
     <main class="page-content">
-        <!-- <mat-slide-toggle color="primary" [checked]="true">Switch</mat-slide-toggle> -->
+        <router-outlet></router-outlet>
+    <app-footer></app-footer>
 
-        <router-outlet>
-
-        </router-outlet>
-        <app-footer></app-footer>
     </main>
 
 
@@ -98,9 +80,6 @@
     <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
     <!--End Back To Top Button-->
 
-    <!--start switcher-->
-    <app-switcher-body></app-switcher-body>
-    <!--end switcher-->
 
 </div>
 <!--end wrapper-->

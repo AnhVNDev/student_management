@@ -18,6 +18,7 @@ import Swal from 'sweetalert2'
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import { saveAs } from 'file-saver';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Console, log } from 'console';
 
 
 
@@ -379,7 +380,6 @@ export class ProfileStudentComponent implements OnInit {
       console.log(data);
 
       let array = await data.ImageFolder.split('\\')
-
 
       this.images = {
         CertificateOfGraduation: 'http://localhost:3000/' + array.slice(7, array.length).join('/') + '/' + data.CertificateOfGraduation,
@@ -1073,7 +1073,9 @@ export class ProfileStudentComponent implements OnInit {
     };
   }
 
-
+  submitForm = () =>{
+    console.log("Submit Form");
+  }
 
 
 }

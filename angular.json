@@ -51,9 +51,8 @@
                             "src/assets/main-files/snacked/ltr/assets/css/semi-dark.css",
                             "src/assets/main-files/snacked/ltr/assets/css/header-colors.css",
 
-                            "src/assets/main-files/snacked/ltr/assets/plugins/datatable/css/dataTables.bootstrap5.min.css"
-
-
+                            "src/assets/main-files/snacked/ltr/assets/plugins/datatable/css/dataTables.bootstrap5.min.css",
+                            "node_modules/bootstrap/dist/css/bootstrap.css",
 
 
 

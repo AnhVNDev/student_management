@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService  {
-  private api = 'http://localhost:3000/';
+  private api = 'https://walrus-app-it3rk.ondigitalocean.app/';
 
 
   sendFileChat(formData: FormData) {
