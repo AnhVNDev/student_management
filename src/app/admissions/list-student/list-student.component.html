@@ -1,4 +1,4 @@
-<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+<!-- <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
     <div class="breadcrumb-title pe-3">Admissions</div>
     <div class="ps-3">
         <nav aria-label="breadcrumb">
@@ -12,20 +12,20 @@
             </ol>
         </nav>
     </div>
-</div>
+</div> -->
 <!--end breadcrumb-->
-
 <div class="col-md-12 card radius-15 align-content-center ">
     <div class="card-body">
         <div class="card-header py-3">
+
             <div class=" border-bottom-0">
                 <br>
                 <div class="row">
-
                     <!-- search -->
                     <div class="col-lg-3  me-auto">
                         <div class="ms-auto position-relative">
-                            <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i class="bi bi-search"></i>
+                            <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i
+                                    class="bi bi-search"></i>
                             </div>
                             <input class="form-control ps-5" type="text" placeholder="Search student">
                         </div>
@@ -33,54 +33,36 @@
 
                     <!-- Button filter -->
                     <div class="col-lg-2  me-auto">
-                        <button (click)="!isShowFilter = true" *ngIf="!isShowFilter" class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              <i class="bi bi-filter"></i> Filter
-            </button>
+                        <button (click)="!isShowFilter = true" *ngIf="!isShowFilter"
+                            class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+                            aria-controls="collapseExample">
+                            <i class="bi bi-filter"></i> Filter
+                        </button>
                     </div>
                     <div class="col-lg-2 me-auto">
                         <button class="btn btn-sm btn-info radius-15 " type="button">Năm
-              <select  [(ngModel)]="selectedYear" (change)="onYearChange()" class="form-select-sm col-10">
-                <option *ngFor="let stt of ngFilterYear" [value]="stt">
-                  {{ stt }}
-                </option>
-              </select>
-            </button>
+                            <select [(ngModel)]="selectedYear" (change)="onYearChange()" class="form-select-sm col-10">
+                                <option *ngFor="let stt of ngFilterYear" [value]="stt">
+                                    {{ stt }}
+                                </option>
+                            </select>
+                        </button>
 
                     </div>
-
-
-
                     <!-- button dropdown Change Semester -->
                     <div class="col-lg-3 me-auto">
                         <div class=" btn-sm btn-info radius-15  text-center" type="button">
                             <i class="fadeIn animated bx bx-calendar-heart font-24 text-dark"></i>Change Semester
-                            <select [(ngModel)]="selectedSemester" (change)="onSemesterChange()" class="form-select-sm mt-2">
-                <option *ngFor="let opt of ngSemester" [value]="opt">
-                  {{ opt }}
-                </option>
-              </select>
+                            <select [(ngModel)]="selectedSemester" (change)="onSemesterChange()"
+                                class="form-select-sm mt-2">
+                                <option *ngFor="let opt of ngSemester" [value]="opt">
+                                    {{ opt }}
+                                </option>
+                            </select>
                         </div>
-                        <!-- <div class="col-sm-3">
-            <div class="row col-sm-12 form-control-sm bg-info border-4 radius-30 ">
-              <td class="col-sm-2 text-center align-items-center radius-30 m-auto">
-                <i class="fadeIn animated bx bx-calendar-heart font-35 text-dark"></i>
-              </td>
-              <td class="col-sm-10 text-black text-break m-auto">
-                <tr class="mb-0 me-0">
-                  <h3 class="radius-30">Change Semester</h3>
-                </tr>
-                <tr class="mt-0">
-                  <select class="btn btn-sm btn-block radius-30 m-auto col-9 hovering-zoom" type="button">
-                    <option *ngFor="let opt of ngSemester" class="bg-light-info radius-30">{{opt}}</option>
-                  </select>
-                </tr>
-
-              </td>
-            </div> -->
                     </div>
                 </div>
-
-
 
                 <!-- show filter -->
                 <div *ngIf="isShowFilter">
@@ -88,8 +70,9 @@
                     <div class="card-body col-8 bg-light-tiffany radius-15 align-content-center m-auto">
                         <div class="row">
                             <h1 class="text-center text-black col-11 me-auto">Filter Sinh Viên</h1>
-                            <a href="javascript:;" class="text-danger col-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Close" aria-label="Close" (click)="isShowFilter = false"><i
-                  class="bi bi-x-lg"></i></a>
+                            <a href="javascript:;" class="text-danger col-1" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" title="" data-bs-original-title="Close" aria-label="Close"
+                                (click)="isShowFilter = false"><i class="bi bi-x-lg"></i></a>
 
                         </div>
 
@@ -97,96 +80,114 @@
                         <!-- xác nhận -->
                         <div class="row m-auto">
                             <div class="col-4">
-                                <button (click)="!isFilterXacNhan = true" *ngIf="!isFilterXacNhan" class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                  Đã xác nhận <i class="bi bi-filter"></i></button>
+                                <button (click)="!isFilterXacNhan = true" *ngIf="!isFilterXacNhan"
+                                    class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                    Đã xác nhận <i class="bi bi-filter"></i></button>
 
                                 <div *ngIf="isFilterXacNhan">
-                                    <button (click)="isFilterXacNhan = false" class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    Đã xác nhận <i class="bi bi-filter"></i></button>
+                                    <button (click)="isFilterXacNhan = false"
+                                        class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        Đã xác nhận <i class="bi bi-filter"></i></button>
 
                                     <div class=" card-body radius-10 bg-light align-content-center col-10">
                                         <tr class="col-10 text-center">
                                             <td>
                                                 <input class="form-check-input table__checkbox" type="checkbox">
-                                                <td>
+                                            <td>
 
-                                                    <p class="mb-0 text-sm ps-2">Trưởng phòng xác nhận hồ sơ hoàn thiện</p>
+                                                <p class="mb-0 text-sm ps-2">Trưởng phòng xác nhận hồ sơ hoàn thiện</p>
 
-                                                </td>
+                                            </td>
                                         </tr>
 
                                         <tr class="col-10 text-center">
                                             <td>
                                                 <input class="form-check-input table__checkbox" type="checkbox">
-                                                <td>
+                                            <td>
 
-                                                    <p class="mb-0 text-sm ps-2">Sinh viên xác nhận đi học</p>
+                                                <p class="mb-0 text-sm ps-2">Sinh viên xác nhận đi học</p>
 
-                                                </td>
+                                            </td>
                                         </tr>
                                     </div>
                                 </div>
                             </div>
                             <!-- hồ sơ  -->
                             <div class="col-4">
-                                <button (click)="!isFilterHoso= true" *ngIf="!isFilterHoso" class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                  Hồ sơ <i class="bi bi-filter"></i></button>
+                                <button (click)="!isFilterHoso= true" *ngIf="!isFilterHoso"
+                                    class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                    Hồ sơ <i class="bi bi-filter"></i></button>
                                 <div *ngIf="isFilterHoso">
 
-                                    <button (click)="isFilterHoso = false" class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    Hồ sơ <i class="bi bi-filter"></i></button>
+                                    <button (click)="isFilterHoso = false"
+                                        class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        Hồ sơ <i class="bi bi-filter"></i></button>
 
                                     <div class=" card-body radius-10 bg-light align-content-center col-10">
                                         <tr class="col-10 text-center">
                                             <td>
                                                 <input class="form-check-input table__checkbox" type="checkbox">
-                                                <td>
+                                            <td>
 
-                                                    <p class="mb-0 text-sm ps-2">Đủ hồ sơ</p>
+                                                <p class="mb-0 text-sm ps-2">Đủ hồ sơ</p>
 
-                                                </td>
+                                            </td>
                                         </tr>
 
                                         <tr class="col-10 text-center">
                                             <td>
                                                 <input class="form-check-input table__checkbox" type="checkbox">
-                                                <td>
+                                            <td>
 
-                                                    <p class="mb-0 text-sm ps-2">Chưa đủ hồ sơ</p>
+                                                <p class="mb-0 text-sm ps-2">Chưa đủ hồ sơ</p>
 
-                                                </td>
+                                            </td>
                                         </tr>
                                     </div>
                                 </div>
                             </div>
                             <!-- phí -->
                             <div class="col-4">
-                                <button (click)="!isFilterPhi= true" *ngIf="!isFilterPhi" class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                  Phí <i class="bi bi-filter"></i></button>
+                                <button (click)="!isFilterPhi= true" *ngIf="!isFilterPhi"
+                                    class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                    Phí <i class="bi bi-filter"></i></button>
 
                                 <div *ngIf="isFilterPhi">
-                                    <button (click)="isFilterPhi = false" class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    Phí <i class="bi bi-filter"></i></button>
+                                    <button (click)="isFilterPhi = false"
+                                        class=" me-auto btn btn-info btn-sm radius-30 hovering-zoom" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        Phí <i class="bi bi-filter"></i></button>
 
                                     <div class=" card-body radius-10 bg-light align-content-center col-10">
                                         <tr class="col-10 text-center">
                                             <td>
                                                 <input class="form-check-input table__checkbox" type="checkbox">
-                                                <td>
+                                            <td>
 
-                                                    <p class="mb-0 text-sm ps-2">Đủ Phí</p>
+                                                <p class="mb-0 text-sm ps-2">Đủ Phí</p>
 
-                                                </td>
+                                            </td>
                                         </tr>
 
                                         <tr class="col-10 text-center">
                                             <td>
                                                 <input class="form-check-input table__checkbox" type="checkbox">
-                                                <td>
+                                            <td>
 
-                                                    <p class="mb-0 text-sm ps-2">Chưa đủ Phí</p>
+                                                <p class="mb-0 text-sm ps-2">Chưa đủ Phí</p>
 
-                                                </td>
+                                            </td>
                                         </tr>
                                     </div>
                                 </div>
@@ -206,11 +207,11 @@
 
                                     <td>
                                         <input class="form-check-input table__checkbox" type="checkbox">
-                                        <td>
+                                    <td>
 
-                                            <p class="mb-0 text-sm ps-2">{{opt}}</p>
+                                        <p class="mb-0 text-sm ps-2">{{opt}}</p>
 
-                                        </td>
+                                    </td>
 
                                 </tr>
                             </div>
@@ -223,11 +224,11 @@
 
                                     <td>
                                         <input class="form-check-input table__checkbox" type="checkbox">
-                                        <td>
+                                    <td>
 
-                                            <p class="mb-0 text-sm ps-2">{{opt}}</p>
+                                        <p class="mb-0 text-sm ps-2">{{opt}}</p>
 
-                                        </td>
+                                    </td>
 
                                 </tr>
 
@@ -240,11 +241,12 @@
                             <div class="col-sm-6 form-group">
                                 <br>
                                 <button (click)="Filter();" class="btn btn-md btn-info" type="submit">Confim
-                </button>
+                                </button>
                             </div>
                             <div class="col-sm-6 form-group">
                                 <br>
-                                <button (click)="isShowFilter=false" class="btn btn-md btn-danger" type="submit">Cancel</button>
+                                <button (click)="isShowFilter=false" class="btn btn-md btn-danger"
+                                    type="submit">Cancel</button>
                             </div>
 
                         </div>
@@ -263,14 +265,21 @@
                 <div class="row col-12 m-auto">
                     <nav class="nav nav-pills nav-justified ">
                         <div class="nav-item me col-4 bg-light-info radius-15">
-                            <a [routerLink]="['/admissions/liststudent/allstudent']" [queryParams]="{ category: 'electronics' }" [ngClass]=" { 'active': isTabActive( 'allstudent')} " (click)="setActiveTab( 'allstudent') " class="nav-link active ">Tất cả sinh viên</a>
+                            <a [routerLink]="['/admissions/liststudent/allstudent']"
+                                [queryParams]="{ category: 'electronics' }"
+                                [ngClass]=" { 'active': isTabActive( 'allstudent')} "
+                                (click)="setActiveTab( 'allstudent') " class="nav-link active ">Tất cả sinh viên</a>
                         </div>
                         <div class="nav-item col-4 bg-light-info radius-15 text-center ">
-                            <a [routerLink]="[ '/admissions/liststudent/eligibility'] " [ngClass]="{ 'active': isTabActive( 'eligibility')} " (click)="setActiveTab( 'eligibility') " class="nav-link ">Danh sách sinh viên đủ điều
-                kiện nhập học</a>
+                            <a [routerLink]="[ '/admissions/liststudent/eligibility'] "
+                                [ngClass]="{ 'active': isTabActive( 'eligibility')} "
+                                (click)="setActiveTab( 'eligibility') " class="nav-link ">Danh sách sinh viên đủ điều
+                                kiện nhập học</a>
                         </div>
                         <div class="nav-item col-4 bg-light-info radius-15 text-center ">
-                            <a [routerLink]="[ '/admissions/liststudent/profileoutdate'] " [ngClass]="{ 'active': isTabActive( 'profileoutdate')} " (click)="setActiveTab( 'profileoutdate') " class="nav-link ">Các hồ sơ quá hạn</a>
+                            <a [routerLink]="[ '/admissions/liststudent/profileoutdate'] "
+                                [ngClass]="{ 'active': isTabActive( 'profileoutdate')} "
+                                (click)="setActiveTab( 'profileoutdate') " class="nav-link ">Các hồ sơ quá hạn</a>
                         </div>
 
                     </nav>
@@ -284,25 +293,6 @@
 
                 </div>
                 <br>
-
-
-
-                <nav aria-label="... ">
-                    <ul class="pagination ">
-                        <li class="page-item disabled ">
-                            <span class="page-link ">Previous</span>
-                        </li>
-                        <li class="page-item "><a class="page-link " href="# ">1</a></li>
-                        <li class="page-item active " aria-current="page ">
-                            <span class="page-link ">2</span>
-                        </li>
-                        <li class="page-item "><a class="page-link " href="# ">3</a></li>
-                        <li class="page-item ">
-                            <a class="page-link " href="# ">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-
             </div>
         </div>
 

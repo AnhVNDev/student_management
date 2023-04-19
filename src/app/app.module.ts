@@ -180,6 +180,7 @@ import { ApiService } from './api.service';
 import { MessagesService } from './message/messages.service';
 import { ChatAdmissionComponent } from './admissions/chat-admission/chat-admission.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -240,6 +241,7 @@ import { MessagesComponent } from './messages/messages.component';
     ModalEditRequestComponent,
     ChatAdmissionComponent,
     MessagesComponent,
+    DashboardComponent,
     
 
   ],

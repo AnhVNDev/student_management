@@ -41,6 +41,7 @@ import { ScholarshipProposalComponent } from './admissions/form-profile/scholars
 import { RequestVerificationFeeComponent } from './accountant/request-verification-fee/request-verification-fee.component';
 import { ChatAdmissionComponent } from './admissions/chat-admission/chat-admission.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -66,6 +67,9 @@ const routes: Routes = [
   {
     path: 'admissions', component: AdmissionsComponent,
     children: [
+      {
+        path: 'dashboard', component: DashboardComponent
+      },
       {
 
         path: 'liststudent', component: ListStudentComponent,
