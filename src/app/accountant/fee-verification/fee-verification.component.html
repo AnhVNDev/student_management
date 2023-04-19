@@ -1,132 +1,127 @@
 <div class="row">
     <div class="col-lg-12">
-        <div class="card">
+        <div class="card box-shadow">
+            <div class="row text-center title">
+                <h2>Danh sách xác minh phí</h2>
+            </div>
             <div class="card-body">
                 <div class="horizontal-form-elements">
-                    <div class="d-flex align-items-center">
-                        <form class="position-relative col-4 m-auto">
-                            <div class="position-absolute top-50 translate-middle-y search-icon px-3">
-                                <i class="bi bi-search"></i>
-                            </div>
-                            <input class="form-control ps-5" type="text" placeholder="search" />
-                        </form>
-                        <button (click)="addPayment()" type="button" class="btn btn-primary justify-content-end m-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Add Payment
-                        </button>
-                        <!-- modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form [formGroup]="paymentForm">
-                                        <div class="modal-body">
-
-                                            <div class="mb-3 mt-3">
-                                                <label for="email" class="form-label">Fee Type:</label>
-
-                                                <form action="" [formGroup]="searchForm">
-                                                    <div class="input-group">
-                                                        <span class="input-group-text" id="basic-addon1"><i
-                                                                class="bi bi-search"></i></span>
-                                                        <input class="form-control" (keyup)="onSearch()" type="search" placeholder="search" formControlName="searchControl">
-                                                    </div>
-                                                    <div class="search-results">
-                                                        <div class="search-result" (click)="selectStudent(student)" *ngFor="let student of filteredStudents">
-                                                            <i class="bi bi-search"></i> {{student.Phone}} - {{student.FullName}}
-                                                        </div>
-
-                                                    </div>
-
-                                                </form>
-
-                                            </div>
-
-
-                                            <div class="mb-3 mt-3">
-                                                <label for="email" class="form-label">Value:</label>
-                                                <input type="number" formControlName="Fee" class="form-control" placeholder="Enter Fee">
-                                            </div>
-
-                                            <div class=" row mb-3 mt-3 justify-content-center">
-                                                <div class="col-3 me-2">
-                                                    <p>Năm</p>
-
-                                                </div>
-
-                                                <div class="col-3">
-                                                    <select class="form-select col-4 text-center" formControlName="Status">
-                                                        <option *ngFor="let stt of ngFilterYear" [value]="stt">
-                                                            {{ stt }}
-                                                        </option>
-                                                    </select>
-                                                </div>
-
-
-
-                                            </div>
-
-
-
-                                            <div class="form-check mb-3">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" name="remember">
-                                                    Đồng ý với các điều khoản
-                                                </label>
-                                            </div>
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                Close
-                                            </button>
-                                            <button type="Submit" (click)="save(paymentForm.value.Id)" class="btn btn-primary">
-                                                Save changes
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
+                    <div class="fillter-wrap m-auto mw-60vw">
+                        <div class="col-lg-8">
+                            <div class="input-group h-100">
+                                <form class="position-relative w-100">
+                                    <div class="position-absolute top-50 translate-middle-y search-icon px-3">
+                                        <i class="bi bi-search"></i>
+                                    </div>
+                                    <input class="form-control ps-5 radius-12 h-100" type="text"
+                                        placeholder="Search..." />
+                                </form>
                             </div>
                         </div>
+                        <div class="add-wrap">
+                            <div class="card flex justify-content-center m-0">
+                                <button (click)="showDialogAddFee()" class="btn btn-primary  btn-add">Add
+                                    Payment</button>
+                                <p-dialog header="Add Payment" [(visible)]="visibleFee" [style]="{ width: '40vw' }">
+                                    <ng-template pTemplate="header">
+                                        <span class="text-xl font-bold">Create Payment</span>
+                                    </ng-template>
+                                    <form [formGroup]="paymentForm">
 
+                                        <div class="mb-3 mt-3">
+                                            <label for="email" class="form-label">Fee Type:</label>
+
+                                            <form action="" [formGroup]="searchForm">
+                                                <div class="input-group">
+                                                    <span class="input-group-text" id="basic-addon1"><i
+                                                            class="bi bi-search"></i></span>
+                                                    <input class="form-control" (keyup)="onSearch()" type="search"
+                                                        placeholder="search" formControlName="searchControl">
+                                                </div>
+                                                <div class="search-results">
+                                                    <div class="search-result" (click)="selectStudent(student)"
+                                                        *ngFor="let student of filteredStudents">
+                                                        <i class="bi bi-search"></i> {{student.Phone}} -
+                                                        {{student.FullName}}
+                                                    </div>
+
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label for="email" class="form-label">Value:</label>
+                                                <input type="number" formControlName="Fee" class="form-control"
+                                                    placeholder="Enter Fee">
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <label for="" class="form-label">Năm:</label>
+                                                <select class="form-select col-4 text-center" formControlName="Status">
+                                                    <option *ngFor="let stt of ngFilterYear" [value]="stt">
+                                                        {{ stt }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-check mt-3 mb-3">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="checkbox" name="remember">
+                                                Đồng ý với các điều khoản
+                                            </label>
+                                        </div>
+                                    </form>
+                                    <ng-template pTemplate="footer">
+                                        <p-button icon="pi pi-times" (click)="visibleFee = false" label="Cancel"
+                                            styleClass="p-button-text"></p-button>
+                                        <p-button icon="pi pi-check" (click)="save(paymentForm.value.Id)"
+                                            (click)="visibleFee = false" label="Save"
+                                            styleClass="p-button-text"></p-button>
+                                    </ng-template>
+                                </p-dialog>
+                            </div>
+                        </div>
+                        
                     </div>
-                    <br />
-                    <!--  -->
-                    <div class="row m-auto text-center align-content-center">
-                        <div class="col-lg-4">
-                            <button class="btn btn-info col-5 " type="button">Năm
-                                <select class="form-select col-10" formControlName="Status">
+                    <div class="row justify-content-center">
+                        <div class="fillter-wrap">
+                            <div class="item-fillter">
+                                <select class="form-select" formControlName="Status" id="year">
                                     <option *ngFor="let stt of ngFilterYear" [value]="stt">
                                         {{ stt }}
                                     </option>
                                 </select>
-                            </button>
-
-                        </div>
-                        <div class="col-lg-4">
-                            <button class="btn btn-info " type="button">
-                                Kỳ
+                                <label for="year">Năm</label>
+                            </div>
+                            <div class="item-fillter">
                                 <select class="form-select" formControlName="Status">
                                     <option *ngFor="let stt of ngFilterSemester" [value]="stt">
                                         {{ stt }}
                                     </option>
                                 </select>
-                            </button>
-                        </div>
-
-
-                        <div class="col-lg-4">
-                            <button class="btn btn-info " type="button">
-                                Trạng thái
+                                <label>Kỳ</label>
+                            </div>
+    
+                            <div class="item-fillter">
                                 <select class="form-select " formControlName="Status">
                                     <option *ngFor="let stt of ngFilterStatus" [value]="stt">
                                         {{ stt }}
                                     </option>
                                 </select>
-                            </button>
+                                <label for="">Trạng thái</label>
+                            </div>
                         </div>
                     </div>
-                    <br />
-                    <div class="row text-center m-auto justify-content-center">
-                        <div class="col-lg-3">
+                    
+                    <!--  -->
+                    <div class="row text-center d-flex m-auto justify-content-center gap-2 my-3">
+                        <!-- <div class="col-lg-3">
                             <div class="form-group bg-success text-white radius-30">
                                 <p class="mb-0">Tổng số SV nộp đủ phí</p>
                                 <p>108</p>
@@ -145,20 +140,22 @@
                                 <p class="mb-0">Thiếu phí giữ chỗ</p>
                                 <p>34</p>
                             </div>
-                        </div>
+                        </div> -->
+                        <p-tag severity="success" icon="pi pi-check" value="Tổng số SV nộp đủ phí: 108" [rounded]="true"></p-tag>
+                        <p-tag severity="info" icon="pi pi-info-circle" value="Thiếu phí giữ chỗ: 34" [rounded]="true"></p-tag>
+                        <p-tag severity="warning" icon="pi pi-exclamation-triangle" value="Thiếu phí xét tuyển: 45" [rounded]="true"></p-tag>
+                        <p-tag severity="danger" icon="pi pi-times" value="Chưa nộp phí: 108" [rounded]="true"></p-tag>
                     </div>
 
                     <!--  -->
                     <h2 class="text-danger text-center">
-                        DANH SÁCH TÌNH TRẠNG NỘP PHÍ CỦA SINH VIÊN
-                    </h2>
+                        Danh sách tình trạng nộp học phí của sinh viên
+                    </h2> 
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table align-middle">
-
+                                <table class="table align-middle tbl-payment-fee">
                                     <thead class="table-secondary text-center">
-                                        <tr>
                                             <th>STT</th>
                                             <th>Mã học sinh</th>
                                             <th>Tên sinh viên</th>
@@ -170,21 +167,21 @@
                                             <th>Chuyên ngành</th>
                                             <th>Trạng thái</th>
                                             <th>Action</th>
-                                        </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>1</td>
+                                            <td class="text-center">1</td>
                                             <td class="text-center">12436</td>
-                                            <td>
+                                            <td>Nguyễn Hữu Vũ</td>
+                                            <!-- <td>
                                                 <div class="d-flex align-items-center gap-3 cursor-pointer">
-                                                    <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="44" height="44" alt="" />
                                                     <div class="">
-                                                        <p class="mb-0" *ngForOf="let name of ngFilterName"><a [routerLink]="['/accountant/formprofile']"> {{name}}</a>
+                                                        <p class="mb-0" *ngForOf="let name of ngFilterName"><a
+                                                                [routerLink]="['/accountant/formprofile']"> {{name}}</a>
                                                         </p>
                                                     </div>
                                                 </div>
-                                            </td>
+                                            </td> -->
                                             <td>Nguyen Ngoc Anh</td>
 
                                             <td class="text-center">8574201</td>
@@ -196,9 +193,14 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                                    <a [routerLink]="['/accountant/formprofile']" href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i
+                                                    <a [routerLink]="['/accountant/formprofile']" href="javascript:;"
+                                                        class="text-warning" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="View detail" aria-label="Views"><i
                                                             class="bi bi-eye-fill"></i></a>
-                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Email" aria-label="Email"><i
+                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="Email" aria-label="Email"><i
                                                             class="lni lni-envelope"></i></a>
 
                                                     <!-- <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
@@ -215,26 +217,33 @@
                                             </td>
                                             <td class="text-center">
                                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit" aria-label="Edit"><i
+                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="Edit" aria-label="Edit"><i
                                                             class="fadeIn animated bx bx-pencil"></i></a>
 
-                                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i
+                                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="Delete" aria-label="Delete"><i
                                                             class="fadeIn animated bx bx-trash-alt"></i></a>
+                                                           
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>2</td>
+                                            <td class="text-center">2</td>
                                             <td class="text-center">12436</td>
-                                            <td>
+                                            <td>Nguyễn Hữu Vũ</td>
+                                            <!-- <td>
                                                 <div class="d-flex align-items-center gap-3 cursor-pointer">
-                                                    <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="44" height="44" alt="" />
+                                                    <img src="assets/images/avatars/avatar-1.png" class="rounded-circle"
+                                                        width="44" height="44" alt="" />
                                                     <div class="">
                                                         <p class="mb-0" *ngForOf="let name of ngFilterName"> {{name}}
                                                         </p>
                                                     </div>
                                                 </div>
-                                            </td>
+                                            </td> -->
                                             <td>Ngoc Anh</td>
 
                                             <td class="text-center">8574201</td>
@@ -246,9 +255,13 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i
+                                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="View detail" aria-label="Views"><i
                                                             class="bi bi-eye-fill"></i></a>
-                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Email" aria-label="Email"><i
+                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="Email" aria-label="Email"><i
                                                             class="lni lni-envelope"></i></a>
 
                                                     <!-- <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
@@ -265,25 +278,22 @@
                                             </td>
                                             <td class="text-center">
                                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit" aria-label="Edit"><i
+                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="Edit" aria-label="Edit"><i
                                                             class="fadeIn animated bx bx-pencil"></i></a>
 
-                                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i
+                                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="Delete" aria-label="Delete"><i
                                                             class="fadeIn animated bx bx-trash-alt"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>3</td>
+                                            <td class="text-center">3</td>
                                             <td class="text-center">12436</td>
-                                            <td>
-                                                <div class="d-flex align-items-center gap-3 cursor-pointer">
-                                                    <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="44" height="44" alt="" />
-                                                    <div class="">
-                                                        <p class="mb-0"> Minh Anh</p>
-                                                    </div>
-                                                </div>
-                                            </td>
+                                            <td>Nguyễn Hữu Vũ</td>
                                             <td>Nguyen Anh</td>
 
                                             <td class="text-center">8574201</td>
@@ -295,9 +305,13 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i
+                                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="View detail" aria-label="Views"><i
                                                             class="bi bi-eye-fill"></i></a>
-                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Email" aria-label="Email"><i
+                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="Email" aria-label="Email"><i
                                                             class="lni lni-envelope"></i></a>
 
                                                     <!-- <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
@@ -314,10 +328,14 @@
                                             </td>
                                             <td class="text-center">
                                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit" aria-label="Edit"><i
+                                                    <a href="javascript:;" class="text-success" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="Edit" aria-label="Edit"><i
                                                             class="fadeIn animated bx bx-pencil"></i></a>
 
-                                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i
+                                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title=""
+                                                        data-bs-original-title="Delete" aria-label="Delete"><i
                                                             class="fadeIn animated bx bx-trash-alt"></i></a>
                                                 </div>
                                             </td>
@@ -325,7 +343,7 @@
                                     </tbody>
 
                                 </table>
-                                <nav aria-label="...">
+                                <!-- <nav aria-label="...">
                                     <ul class="pagination justify-content-end">
                                         <li class="page-item disabled">
                                             <span class="page-link">Trước</span>
@@ -339,7 +357,10 @@
                                             <a class="page-link" href="#">Sau</a>
                                         </li>
                                     </ul>
-                                </nav>
+                                </nav> -->
+                                <div class="row justify-content-center">
+                                    <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="120"></p-paginator>
+                                </div>
                             </div>
                         </div>
                     </div>

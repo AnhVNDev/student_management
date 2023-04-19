@@ -315,4 +315,26 @@ export class FeeVerificationComponent implements OnInit {
     
       
     }
+
+    visible: boolean | undefined;
+
+    showDialog() {
+        this.visible = true;
+    }
+
+    visibleFee: boolean | undefined;
+    showDialogAddFee(){
+      this.visibleFee = true;
+      this.addPayment();
+    }
+
+    first: number = 0;
+
+    rows: number = 10;
+
+    onPageChange(event: { first: number; rows: number; }) {
+        this.first = event.first;
+        this.rows = event.rows;
+    }
+
 }

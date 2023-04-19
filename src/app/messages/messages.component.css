@@ -190,3 +190,18 @@ ul {
 .chat-hour{
   gap: 4px;
 }
+
+.file {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.file>input {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}

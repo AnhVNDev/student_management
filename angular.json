@@ -52,7 +52,7 @@
                             "src/assets/main-files/snacked/ltr/assets/css/header-colors.css",
 
                             "src/assets/main-files/snacked/ltr/assets/plugins/datatable/css/dataTables.bootstrap5.min.css",
-                            "node_modules/bootstrap/dist/css/bootstrap.css",
+                            "node_modules/bootstrap/dist/css/bootstrap.css"
 
 
 
@@ -79,7 +79,8 @@
                             "src/assets/main-files/snacked/ltr/assets/plugins/datatable/js/dataTables.bootstrap5.min.js",
                             "src/assets/main-files/snacked/ltr/assets/js/table-datatable.js",
                             "src/assets/main-files/snacked/ltr/assets/js/app-emailread.js",
-                            "src/assets/main-files/snacked/ltr/assets/js/app-chat-box.js"
+                            "src/assets/main-files/snacked/ltr/assets/js/app-chat-box.js",
+                            "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
                         ]
                     },
                     "configurations": {

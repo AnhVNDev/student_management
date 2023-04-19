@@ -156,7 +156,7 @@ const routes: Routes = [
           { path: 'newfee', component: NewFeeComponent }
         ]
       },
-      { path: 'boxchat', component: ChatboxComponent },
+      { path: 'boxchat', component: MessagesComponent },
       {path: 'requestfee', component: RequestVerificationFeeComponent},
 
     ]

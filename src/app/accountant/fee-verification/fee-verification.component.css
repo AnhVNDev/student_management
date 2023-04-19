@@ -1,0 +1,122 @@
+.box-shadow{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.ms-n5 {
+    margin-left: -40px;
+}
+
+.fillter-wrap{
+    margin-top: 20px;
+}
+
+.fillter-wrap{
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.title{
+    margin-top: 20px;
+}
+
+.item-fillter{
+    position: relative;
+    width: 33%;
+}
+
+.item-fillter>select{
+    border-radius: 12px;
+}
+
+.item-fillter>label{
+    position: absolute;
+    top: -12px;
+    left: 14px;
+    display: block;
+    padding: 2px;
+    background: #ffff;
+    font-weight: 500;
+}
+
+.fillter-select{
+    display: flex;
+    gap: 16px;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.radius{
+    border-radius: 12px;
+}
+
+.f-right{
+    float: right;
+}
+
+.h-100{
+    height: 100%;
+}
+
+.btn-fillter{
+    gap: 4px;
+}
+
+.add-wrap{
+    display: flex;
+    gap: 8px;
+}
+
+.btn-add{
+    height: 100%;
+    margin: 0;
+}
+
+.fillter-wrap{
+    display: flex;
+    width: 30vw;
+}
+
+::ng-deep .p-dialog-mask{
+    left: 9% !important;
+}
+
+.m-0{
+    margin: 0;
+}
+
+::ng-deep p-tag{
+    width: fit-content !important;
+}
+
+::ng-deep .p-tag{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.tbl-payment-fee{
+    border: 1px solid #dc3545;
+}
+
+.tbl-payment-fee>thead{
+    border-bottom: 1px solid #dc3545;
+}
+.tbl-payment-fee>thead>th{
+    padding: 12px;    
+    border-left: 1px solid #dc3545;
+}
+
+.tbl-payment-fee>tbody>tr>td{
+    border-left: 1px solid #dc3545;
+    padding: 12px;
+}
+
+.badge{
+    border-radius: 12px;
+    padding: 6px 8px;
+}
+
+.mw-60vw{
+    min-width: 60vw;
+}

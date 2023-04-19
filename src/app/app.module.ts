@@ -9,7 +9,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS, HttpClientJsonpModule } from '@ang
 import { FormProfileComponent } from './admissions/form-profile/form-profile.component';
 
 import { ProfileStudentComponent } from './students/profile-student/profile-student.component';
-
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutoAccountComponent } from './admissions/auto-account/auto-account.component';
@@ -338,7 +338,7 @@ import { MessagesComponent } from './messages/messages.component';
     TreeTableModule,
     AnimateModule,
     CardModule,
-
+    ConfirmPopupModule,
     QuillModule,
 
     // SocketIoModule.forRoot(config),

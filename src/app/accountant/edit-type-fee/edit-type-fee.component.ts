@@ -151,15 +151,11 @@ export class EditTypeFeeComponent {
           alert("Xóa thành công");
           
           this.toastService.success({detail: "Delete Success", summary: 'Enquiry Updated', duration: 3000})
-    
-    
-        
         },
     
           error => {
             console.log("Error", error);
             alert("Error");
-           
           }
     
         );
@@ -238,7 +234,9 @@ export class EditTypeFeeComponent {
       this.allFees();
       
     }
-
-
+    visible: boolean = false;
+    showDialogCreate(){
+      this.visible = true;
+    }
   
 }

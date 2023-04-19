@@ -1,55 +1,57 @@
 <div class="row">
     <div class="col-lg-12">
-        <div class="card">
+        <div class="card box-shadow">
+            <div class="row text-center title">
+                <h2>Danh sách xác minh phí</h2>
+            </div>
             <div class="card-body">
                 <div class="horizontal-form-elements">
-                    <div class="d-flex align-items-center">
-                        <form class="position-relative col-4 m-auto">
-                            <div class="position-absolute top-50 translate-middle-y search-icon px-3">
-                                <i class="bi bi-search"></i>
+                    <div class="fillter-wrap m-auto mw-60vw">
+                        <div class="col-lg-8">
+                            <div class="input-group h-100">
+                                <form class="position-relative w-100">
+                                    <div class="position-absolute top-50 translate-middle-y search-icon px-3">
+                                        <i class="bi bi-search"></i>
+                                    </div>
+                                    <input class="form-control ps-5 radius-12 h-100" type="text"
+                                        placeholder="Search..." />
+                                </form>
                             </div>
-                            <input class="form-control ps-5" type="text" placeholder="search" />
-                        </form>
+                        </div>
                     </div>
-                    <br />
-                    <!--  -->
-                    <div class="row m-auto text-center align-content-center">
-                        <div class="col-lg-4">
-                            <button class="btn bg-info col-5 " type="button">Năm
-                                <select class="form-select col-10" formControlName="Status">
+                    <div class="row justify-content-center">
+                        <div class="fillter-wrap">
+                            <div class="item-fillter">
+                                <select class="form-select" formControlName="Status" id="year">
                                     <option *ngFor="let stt of ngFilterYear" [value]="stt">
                                         {{ stt }}
                                     </option>
                                 </select>
-                            </button>
-
-                        </div>
-                        <div class="col-lg-4">
-                            <button class="btn bg-info " type="button">
-                                Kỳ
+                                <label for="year">Năm</label>
+                            </div>
+                            <div class="item-fillter">
                                 <select class="form-select" formControlName="Status">
                                     <option *ngFor="let stt of ngFilterSemester" [value]="stt">
                                         {{ stt }}
                                     </option>
                                 </select>
-                            </button>
-                        </div>
-
-
-                        <div class="col-lg-4">
-                            <button class="btn bg-info " type="button">
-                                Trạng thái
+                                <label>Kỳ</label>
+                            </div>
+    
+                            <div class="item-fillter">
                                 <select class="form-select " formControlName="Status">
                                     <option *ngFor="let stt of ngFilterStatus" [value]="stt">
                                         {{ stt }}
                                     </option>
                                 </select>
-                            </button>
+                                <label for="">Trạng thái</label>
+                            </div>
                         </div>
                     </div>
-                    <br />
-                    <div class="row text-center m-auto justify-content-center">
-                        <div class="col-lg-3">
+                    
+                    <!--  -->
+                    <div class="row text-center d-flex m-auto justify-content-center gap-2 my-3">
+                        <!-- <div class="col-lg-3">
                             <div class="form-group bg-success text-white radius-30">
                                 <p class="mb-0">Tổng số SV nộp đủ phí</p>
                                 <p>108</p>
@@ -68,45 +70,40 @@
                                 <p class="mb-0">Thiếu phí giữ chỗ</p>
                                 <p>34</p>
                             </div>
-                        </div>
+                        </div> -->
+                        <p-tag severity="success" icon="pi pi-check" value="Tổng số SV nộp đủ phí: 108" [rounded]="true"></p-tag>
+                        <p-tag severity="info" icon="pi pi-info-circle" value="Thiếu phí giữ chỗ: 34" [rounded]="true"></p-tag>
+                        <p-tag severity="warning" icon="pi pi-exclamation-triangle" value="Thiếu phí xét tuyển: 45" [rounded]="true"></p-tag>
+                        <p-tag severity="danger" icon="pi pi-times" value="Chưa nộp phí: 108" [rounded]="true"></p-tag>
                     </div>
 
                     <!--  -->
                     <h2 class="text-danger text-center">
-                        DANH SÁCH YÊU CẦU XÁC MINH NỘP PHÍ CỦA SINH VIÊN
-                    </h2>
+                        Danh sách tình trạng nộp học phí của sinh viên
+                    </h2> 
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table align-middle">
-
+                                <table class="table align-middle tbl-payment-fee">
                                     <thead class="table-secondary text-center">
-                                        <tr>
                                             <th>STT</th>
                                             <th>Mã học sinh</th>
                                             <th>Tên sinh viên</th>
-                                            <th>Số điện thoại</th>
                                             <th>Tên tư vấn</th>
+                                            <th>Số điện thoại</th>
                                             <th>Email</th>
                                             <th>Link hóa đơn</th>
                                             <th>Liên lạc</th>
                                             <th>Chuyên ngành</th>
                                             <th>Trạng thái</th>
                                             <th>Action</th>
-                                        </tr>
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let payment of payments; let i = index">
                                             <td>{{i}}</td>
                                             <td class="text-center">12436</td>
-                                            <td>
-                                                <div class="d-flex align-items-center gap-3 cursor-pointer">
-                                                    <img src="assets/images/avatars/avatar-1.png" class="rounded-circle" width="44" height="44" alt="" />
-                                                    <div class="">
-                                                        <p class="mb-0"><a [routerLink]="['/accountant/formprofile']"> {{payment.Student.FullName}}</a>
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                            <td [routerLink]="['/accountant/formprofile']" class="touch-profile">
+                                                {{payment.Student.FullName}}
                                             </td>
                                             <td class="text-center">{{payment.Student.Phone}}</td>
                                             <td>Nguyen Ngoc Anh</td>
@@ -153,25 +150,12 @@
                                             </td>
 
                                         </tr>
-
                                     </tbody>
 
                                 </table>
-                                <nav aria-label="...">
-                                    <ul class="pagination justify-content-end">
-                                        <li class="page-item disabled">
-                                            <span class="page-link">Trước</span>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item active" aria-current="page">
-                                            <span class="page-link">2</span>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">Sau</a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                                <div class="row justify-content-center">
+                                    <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="120"></p-paginator>
+                                </div>
                             </div>
                         </div>
                     </div>
